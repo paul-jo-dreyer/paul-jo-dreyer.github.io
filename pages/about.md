@@ -29,7 +29,7 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 <table style="width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
   <thead>
-    <tr>
+    <tr style="background-color: #c9c9c9;"> <!-- Light grey background -->
       <th style="padding: 8px; border: 1px solid #ccc;">Software</th>
       <th style="padding: 8px; border: 1px solid #ccc;"></th>
       <th style="padding: 8px; border: 1px solid #ccc;"></th>
