@@ -4,6 +4,11 @@ title: About
 permalink: /about
 ---
 
-![Photo not loaded](assets/img/me_round.png)
+<!-- ![Photo not loaded](assets/img/me_round.png) -->
 
-Millennial is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused publishing platform for your publication site or blog. You can find everything you need to get started under documentation. For more information on how to install and use this theme, check out [the documentation]({{ site.github.url }}{% post_url 2016-10-10-getting-started %}).
+<img src="{{ '/assets/imag/me_round.png' | relative_url }}" 
+     alt="Photo unable to load" 
+     class="centered-image">
+
+
+I'm mechanical engineer focused on robotic systems and control theory
