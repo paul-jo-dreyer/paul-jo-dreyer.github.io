@@ -18,20 +18,35 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ## Experiences
 
-### Dirac Inc.
+### Dirac Inc. - Backend Engineer (2024)
 
-<!-- <div style="text-align: left;">
+<div style="text-align: center;">
   <img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
        alt="photo not loaded"
-       style="max-width: 80px; height: auto;">
-</div> -->
+       style="width: 50%; max-width: 100px; height: auto;">
+</div>
 
-testing pre testing pre testing pre testing pre testing pre testing pre testing pre testing pre testing pre
-testing pre testing pre testing pre testing pre testing pre testing pre testing pre
 
-<img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
-     alt="Logo" 
-     style="display: inline; width: 1em; height: 1em; vertical-align: middle;">
+### Ford Motors - Computer Vision Research Engineer (2023)
 
-testing post testing post testing post testing post testing post testing post testing post testing post testing post
-testing post testing post testing post testing post testing post testing post testing post testing post testing post testing post
+<div style="text-align: center;">
+  <img src="{{ '/assets/img/Ford_logo.png' | relative_url }}" 
+       alt="photo not loaded"
+       style="width: 50%; max-width: 100px; height: auto;">
+</div>
+
+### CMU Biorobotics Lab - Research Assistant (2021-2022)
+
+<div style="text-align: center;">
+  <img src="{{ '/assets/img/biorobotics.png' | relative_url }}" 
+       alt="photo not loaded"
+       style="width: 50%; max-width: 100px; height: auto;">
+</div>
+
+### United States Air Force - Communication Technician (2014-2020)
+
+<div style="text-align: center;">
+  <img src="{{ '/assets/img/Air_Force_logo.png' | relative_url }}" 
+       alt="photo not loaded"
+       style="width: 50%; max-width: 100px; height: auto;">
+</div>

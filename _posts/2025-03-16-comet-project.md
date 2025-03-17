@@ -29,4 +29,11 @@ Comet is born from a dream to have a cost-feasible autonomous robot in the home.
 
 ## Web-app
 
+<div style="text-align: center;">
+  <img src="{{ 'assets/img/comet_webapp_phone.png' | relative_url }}" 
+       alt="photo not loaded"
+       style="width: 50%; max-width: 500px; height: auto;">
+</div>
+
+
 ## Team members
