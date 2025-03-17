@@ -14,6 +14,39 @@ permalink: /about
 
 I'm in my final semester of a 5th year masters in Mechanical Engineering at Carnegie Mellon University in Pittsburgh, PA. I primarily focus in robot systems design and motion control systems (GNC), including optimal control theory and deep RL based control. 
 
+## Skills
+
+* Computer Aided Design (CAD)
+    * Onshape
+* Software (Backend)
+    * Python
+    * Julia Lang.
+* Software (Embedded)
+    * C++
+* Software (Frontend)
+    * React / React.js
+* Reinforcement Learning (RL) / Optimal Control
+    * LQR
+    * MPC
+    * DIRCOL
+    * iLQR
+    * Interior Point methods
+* Deep Reinforcment Learning
+    * PPO
+    * TD3
+    * Curriculum based design
+* Robotic Planning / Exploration
+    * Rapidly Exploring Random Trees (RRT + RRT*)
+    * Mutual Information (Entropy based exploration)
+* PCB Design
+    * KiCad
+* Design for Manufacturing and Assembly (DFMA)
+    * 3D-printing
+    * CNC Machining
+    * Water Jet cutting
+    * Sheet metal bending
+
+
 ## Education
 
 M.S. Mechanical Engineering - Carnegie Mellon (Expected graduation May 2025)
@@ -32,8 +65,8 @@ B.S. Mechanical Engineering - Carnegie Mellon
 
   <!-- Text Container -->
   <div style="flex: 1;">
-    <h2 style="margin-top: 0; padding: 16px;">Dirac Inc. - Backend Engineer (2024)</h2>
-    <p>
+    <h2 style="margin-top: 0;">Dirac Inc. - Backend Engineer (2024)</h2>
+    <p style="margin-right: 16px;">
       Dirac is a startup in NYC/LA that is creating a product to automate work instructions for manufacturing purposes.
       During my internship here, I developed a trajectory optimization algorithm that would create minimal collision 
       paths for general 3D objects to travel during the assembly of a system. I also developed an custom signed distance
