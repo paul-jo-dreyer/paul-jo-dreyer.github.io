@@ -18,15 +18,13 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ## Experiences
 
-### Dirac Inc. - Backend Engineer (2024)
-
 <!-- <div style="text-align: left;">
   <img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
        alt="photo not loaded"
        style="width: 50%; max-width: 100px; height: auto;">
 </div> -->
 
-<div style="display: flex; align-items: flex-start; border: 1px solid #ccc; padding: 16px; max-width: 600px;">
+<div style="display: flex; align-items: flex-start; padding: 16px; width: 100%;">
 
   <!-- Image Container -->
   <div style="flex: 0 0 auto; margin-right: 20px;">
@@ -37,17 +35,19 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
   <!-- Text Container -->
   <div style="flex: 1;">
-    <h3 style="margin-top: 0;">Header Description</h3>
+    <h2 style="margin-top: 0;">Dirac Inc. - Backend Engineer (2024)</h2>
     <p>
-      This is a paragraph of text next to the image. Both the header and the paragraph are aligned together, and there is a right margin between the image and text. Everything is contained within a neat box.
+      Dirac is a startup in NYC/LA that is creating a product to automate work instructions for manufacturing purposes.
+      During my internship here, I developed a trajectory optimization algorithm that would create minimal collision 
+      paths for general 3D objects to travel during the assembly of a system. I also developed an custom signed distance
+      field (SDF) solver that would generate data structs for a given 3D object at a desired resolution.
+      ----------------
+      Language: Python
     </p>
   </div>
 
 </div>
 
-
-
-### Ford Motors - Computer Vision Research Engineer (2023)
 
 <div style="text-align: left;">
   <img src="{{ '/assets/img/Ford_logo.png' | relative_url }}" 
