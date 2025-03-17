@@ -16,40 +16,21 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ## Skills
 
-* Computer Aided Design (CAD)
-    * Onshape
-* Software (Backend)
-    * Python
-    * Julia Lang.
-* Software (Embedded)
-    * C++
-* Software (Frontend)
-    * React / React.js
-* Reinforcement Learning (RL) / Optimal Control
-    * LQR
-    * MPC
-    * DIRCOL
-    * iLQR
-    * Interior Point methods
-* Deep Reinforcment Learning
-    * PPO
-    * TD3
-    * Curriculum based design
-* Robotic Planning / Exploration
-    * Rapidly Exploring Random Trees (RRT + RRT*)
-    * Mutual Information (Entropy based exploration)
-* PCB Design
-    * KiCad
-* Design for Manufacturing and Assembly (DFMA)
-    * 3D-printing
-    * CNC Machining
-    * Water Jet cutting
-    * Sheet metal bending
-
+| Software      |                                   |          | Hardware |      |
+|---------------|-----------------------------------| -------- | -------- | ---- |
+| <b>Frontend</b> | React | | <b>Computer Aided Design (CAD)</b> | Onshape |
+| <b>Backend</b> | Python<br> Julia Lang | | <b>PCB Design</b> | KiCad |
+| <b>Embedded</b> | c++ | | <b></b> | |
+| <b>Optimal Control / RL</b> | Julia Lang<br> Python | | <b>Design For Manufacturing + Assembly</b> | 3D Printing</br> CNC Machining</br> Lathe</br> Water Jet</br> Sheet Metal Bending |
+| <b>Deep RL</b> | Python | | <b></b> | |
+| <b>Algorithms (LP / QP)</b> | Interior point methods</br> LQR</br> CVX MPC | | <b></b> | |
+| <b>Algorithms (NLP)</b> | iLQR</br> DIRCOL</br> | | <b></b> | |
+| <b>Algrotihms (DRL)</b> | PPO</br> TD3 | | <b></b> | |
 
 ## Education
 
 M.S. Mechanical Engineering - Carnegie Mellon (Expected graduation May 2025)
+
 B.S. Mechanical Engineering - Carnegie Mellon 
 
 ## Experiences
