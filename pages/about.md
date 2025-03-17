@@ -26,21 +26,25 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
        style="width: 50%; max-width: 100px; height: auto;">
 </div> -->
 
-<div style="flex: 0 0 auto; margin-right: 20px;">
-  <img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
-       alt="photo not loaded"
-       style="width: 50%; max-width: 100px; height: auto;">
-    
-  <!-- Text container -->
-  <div style="flex: 1;">
+<div style="display: flex; align-items: flex-start; border: 1px solid #ccc; padding: 16px; max-width: 600px;">
 
-  <h3 style="margin-top: 0;">Header Descritpion</h3>
-  <p>
-  This is a paragraph of text next to the image. Both the header and the paragraph are aligned together, and there is a right margin between the image and text. Everything is contained within a neat box. 
-  </p>
+  <!-- Image Container -->
+  <div style="flex: 0 0 auto; margin-right: 20px;">
+    <img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
+         alt="photo not loaded"
+         style="width: 100px; height: auto;">
   </div>
 
-</div> 
+  <!-- Text Container -->
+  <div style="flex: 1;">
+    <h3 style="margin-top: 0;">Header Description</h3>
+    <p>
+      This is a paragraph of text next to the image. Both the header and the paragraph are aligned together, and there is a right margin between the image and text. Everything is contained within a neat box.
+    </p>
+  </div>
+
+</div>
+
 
 
 ### Ford Motors - Computer Vision Research Engineer (2023)
