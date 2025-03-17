@@ -20,16 +20,31 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ### Dirac Inc. - Backend Engineer (2024)
 
-<div style="text-align: center;">
+<!-- <div style="text-align: left;">
   <img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
        alt="photo not loaded"
        style="width: 50%; max-width: 100px; height: auto;">
-</div>
+</div> -->
+
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+    <img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
+       alt="photo not loaded"
+       style="width: 50%; max-width: 100px; height: auto;">
+    <h1>
+        Description:
+    </h1>
+    <h2>
+        Description:
+    </h2>
+    <p>
+        Description:
+    </p>
+</div> 
 
 
 ### Ford Motors - Computer Vision Research Engineer (2023)
 
-<div style="text-align: center;">
+<div style="text-align: left;">
   <img src="{{ '/assets/img/Ford_logo.png' | relative_url }}" 
        alt="photo not loaded"
        style="width: 50%; max-width: 100px; height: auto;">
@@ -37,7 +52,7 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ### CMU Biorobotics Lab - Research Assistant (2021-2022)
 
-<div style="text-align: center;">
+<div style="text-align: left;">
   <img src="{{ '/assets/img/biorobotics.png' | relative_url }}" 
        alt="photo not loaded"
        style="width: 50%; max-width: 100px; height: auto;">
@@ -45,7 +60,7 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ### United States Air Force - Communication Technician (2014-2020)
 
-<div style="text-align: center;">
+<div style="text-align: left;">
   <img src="{{ '/assets/img/Air_Force_logo.png' | relative_url }}" 
        alt="photo not loaded"
        style="width: 50%; max-width: 100px; height: auto;">

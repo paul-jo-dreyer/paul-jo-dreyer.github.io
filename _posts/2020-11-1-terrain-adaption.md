@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Low Cost Haptic Prosthetics"
+title: "Terrain-Adaptive Contact Surfaces"
 author: "Paul Dreyer"
 categories: documentation
 tags: [documentation]
