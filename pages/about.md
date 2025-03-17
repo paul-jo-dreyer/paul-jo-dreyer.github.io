@@ -45,17 +45,17 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
       <td style="padding: 8px; border: 1px solid #ccc;"><b>Embedded</b></td>
       <td style="padding: 8px; border: 1px solid #ccc;">C++</td>
       <td style="padding: 8px; border: 1px solid #ccc;"></td>
-      <td style="padding: 8px; border: 1px solid #ccc;"><b></b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Design For Manufacturing + Assembly</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">
+        3D Printing<br>CNC Machining<br>Lathe<br>Water Jet<br>Sheet Metal Bending
+      </td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ccc;"><b>Optimal Control / RL</b></td>
       <td style="padding: 8px; border: 1px solid #ccc;">Julia Lang<br>Python</td>
       <td style="padding: 8px; border: 1px solid #ccc;"></td>
-      <td style="padding: 8px; border: 1px solid #ccc;"><b>Design For Manufacturing + Assembly</b></td>
-      <td style="padding: 8px; border: 1px solid #ccc;">
-        3D Printing<br>CNC Machining<br>Lathe<br>Water Jet<br>Sheet Metal Bending
-      </td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b></b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ccc;"><b>Deep RL</b></td>
@@ -111,7 +111,7 @@ B.S. Mechanical Engineering - Carnegie Mellon
   <!-- Text Container -->
   <div style="flex: 1;">
     <h2 style="margin-top: 0;">Dirac Inc. - Backend Engineer (2024)</h2>
-    <p style="margin-right: 16px;">
+    <p style="margin-right: 30px;">
       Dirac is a startup in NYC/LA that is creating a product to automate work instructions for manufacturing purposes.
       During my internship here, I developed a trajectory optimization algorithm that would create minimal collision 
       paths for general 3D objects to travel during the assembly of a system. I also developed an custom signed distance
@@ -134,7 +134,7 @@ B.S. Mechanical Engineering - Carnegie Mellon
   <!-- Text Container -->
   <div style="flex: 1;">
     <h2 style="margin-top: 0;">Ford Motors - Computer Vision Research Engineer (2023)</h2>
-    <p>
+    <p style="margin-right: 30px;">
       During the manufacturing process of a vehicle, it's critical to inspect the installation of 
       components at various points along the line in order to catch errors early and minimize the 
       lost costs of correcting assembly errors. Ford is exploring the use of deep neural nets to 
@@ -168,7 +168,7 @@ B.S. Mechanical Engineering - Carnegie Mellon
   <!-- Text Container -->
   <div style="flex: 1;">
     <h2 style="margin-top: 0;">CMU Biorobotics Lab - Research Assistant (2021-2022)</h2>
-    <p>
+    <p style="margin-right: 30px;">
     During my time with the Biorobotics lab, I worked on a research team developing a robot to 
     achieve pipe-in-pipe trenchless repair for the decaying natural gas piping infrastructure around
     the US. I designed and tested a radial nozzel that would extrude an exotic resin in a pipe shape
@@ -191,7 +191,7 @@ B.S. Mechanical Engineering - Carnegie Mellon
   <!-- Text Container -->
   <div style="flex: 1;">
     <h2 style="margin-top: 0;">CU Boulder Matter Assembly Lab - Research Assistant (2020)</h2>
-    <p>
+    <p style="margin-right: 30px;">
       During my time with the Matter Assembly Lab, I developed a novel print-in-place pneumatic 
       flex sensor for a soft robotic finger. This allowed for pose estimation of the actuator 
       without the introduction of rigid sensing components in the actuator itself, preserving the 
@@ -214,7 +214,7 @@ B.S. Mechanical Engineering - Carnegie Mellon
   <!-- Text Container -->
   <div style="flex: 1;">
     <h2 style="margin-top: 0;">United States Air Force - Communications (2014-2020)</h2>
-    <p>
+    <p style="margin-right: 30px;">
     In the Air force I worked as a communications technician. My responsiibilities included 
     operating and maintaining SATCOM systems, as well as deploying tactical HF communication systems
     in various regions and terrains around the world, from mountains to forrest / jungle terrain. I 
