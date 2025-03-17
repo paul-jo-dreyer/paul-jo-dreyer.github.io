@@ -16,7 +16,7 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ## Skills
 
-| Software      |                                   |          | Hardware |      |
+<!-- | Software      |                                   |          | Hardware |      |
 |---------------|-----------------------------------| -------- | -------- | ---- |
 | <b>Frontend</b> | React | | <b>Computer Aided Design (CAD)</b> | Onshape |
 | <b>Backend</b> | Python<br> Julia Lang | | <b>PCB Design</b> | KiCad |
@@ -25,7 +25,82 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 | <b>Deep RL</b> | Python | | <b></b> | |
 | <b>Algorithms (LP / QP)</b> | Interior point methods</br> LQR</br> CVX MPC | | <b></b> | |
 | <b>Algorithms (NLP)</b> | iLQR</br> DIRCOL</br> | | <b></b> | |
-| <b>Algrotihms (DRL)</b> | PPO</br> TD3 | | <b></b> | |
+| <b>Algrotihms (DRL)</b> | PPO</br> TD3 | | <b></b> | | -->
+
+<table style="width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+  <thead>
+    <tr>
+      <th style="padding: 8px; border: 1px solid #ccc;">Software</th>
+      <th style="padding: 8px; border: 1px solid #ccc;"></th>
+      <th style="padding: 8px; border: 1px solid #ccc;"></th>
+      <th style="padding: 8px; border: 1px solid #ccc;">Hardware</th>
+      <th style="padding: 8px; border: 1px solid #ccc;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Frontend</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">React</td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Computer Aided Design (CAD)</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">Onshape</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Backend</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">Python<br>Julia Lang</td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>PCB Design</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">KiCad</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Embedded</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">C++</td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b></b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Optimal Control / RL</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">Julia Lang<br>Python</td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Design For Manufacturing + Assembly</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">
+        3D Printing<br>CNC Machining<br>Lathe<br>Water Jet<br>Sheet Metal Bending
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Deep RL</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">Python</td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b></b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Algorithms (LP / QP)</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">
+        Interior point methods<br>LQR<br>CVX MPC
+      </td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b></b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Algorithms (NLP)</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">iLQR<br>DIRCOL</td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b></b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b>Algorithms (DRL)</b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;">PPO<br>TD3</td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"><b></b></td>
+      <td style="padding: 8px; border: 1px solid #ccc;"></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Education
 
