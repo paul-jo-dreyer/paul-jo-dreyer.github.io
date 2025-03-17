@@ -16,13 +16,10 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ## Education
 
-## Experiences
+M.S. Mechanical Engineering - Carnegie Mellon (Expected graduation May 2025)
+B.S. Mechanical Engineering - Carnegie Mellon 
 
-<!-- <div style="text-align: left;">
-  <img src="{{ '/assets/img/dirac_logo.png' | relative_url }}" 
-       alt="photo not loaded"
-       style="width: 50%; max-width: 100px; height: auto;">
-</div> -->
+## Experiences
 
 <div style="display: flex; align-items: flex-start; padding: 16px; width: 100%;">
 
@@ -35,7 +32,7 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
   <!-- Text Container -->
   <div style="flex: 1;">
-    <h2 style="margin-top: 0;">Dirac Inc. - Backend Engineer (2024)</h2>
+    <h2 style="margin-top: 0; padding: 16px;">Dirac Inc. - Backend Engineer (2024)</h2>
     <p>
       Dirac is a startup in NYC/LA that is creating a product to automate work instructions for manufacturing purposes.
       During my internship here, I developed a trajectory optimization algorithm that would create minimal collision 
@@ -94,6 +91,33 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
   <div style="flex: 1;">
     <h2 style="margin-top: 0;">CMU Biorobotics Lab - Research Assistant (2021-2022)</h2>
     <p>
+    During my time with the Biorobotics lab, I worked on a research team developing a robot to 
+    achieve pipe-in-pipe trenchless repair for the decaying natural gas piping infrastructure around
+    the US. I designed and tested a radial nozzel that would extrude an exotic resin in a pipe shape
+    creating a smaller pipe within the old infrastructure. This nozzle was design to adapt its 
+    exterior geometry to acomodate stress induced ellipsoidal fallicies in the host pipe geometry.
+    </p>
+  </div>
+
+</div>
+
+<div style="display: flex; align-items: flex-start; padding: 16px; width: 100%;">
+
+  <!-- Image Container -->
+  <div style="flex: 0 0 auto; margin-right: 20px;">
+    <img src="{{ '/assets/img/MAC_lab_logo.png' | relative_url }}" 
+         alt="photo not loaded"
+         style="width: 100px; height: auto;">
+  </div>
+
+  <!-- Text Container -->
+  <div style="flex: 1;">
+    <h2 style="margin-top: 0;">CU Boulder Matter Assembly Lab - Research Assistant (2020)</h2>
+    <p>
+      During my time with the Matter Assembly Lab, I developed a novel print-in-place pneumatic 
+      flex sensor for a soft robotic finger. This allowed for pose estimation of the actuator 
+      without the introduction of rigid sensing components in the actuator itself, preserving the 
+      desireable features of a soft actuated finger
     </p>
   </div>
 
@@ -104,7 +128,7 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
   <!-- Image Container -->
   <div style="flex: 0 0 auto; margin-right: 20px;">
-    <img src="{{ '/assets/img/Air_Force_logo.png' | relative_url }}" 
+    <img src="{{ '/assets/img/Air_Force_Logo.png' | relative_url }}" 
          alt="photo not loaded"
          style="width: 100px; height: auto;">
   </div>
@@ -113,6 +137,12 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
   <div style="flex: 1;">
     <h2 style="margin-top: 0;">United States Air Force - Communications (2014-2020)</h2>
     <p>
+    In the Air force I worked as a communications technician. My responsiibilities included 
+    operating and maintaining SATCOM systems, as well as deploying tactical HF communication systems
+    in various regions and terrains around the world, from mountains to forrest / jungle terrain. I 
+    completed a 6 month deployment to southern Turkey in support of mission Enduring Freedom. I
+    honorably seperated from the Air Force at the completion of my 6-year enlistment as a Staff 
+    Sergeant (E-5).
     </p>
   </div>
 
