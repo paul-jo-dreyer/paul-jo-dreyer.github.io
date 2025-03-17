@@ -15,15 +15,5 @@ permalink: /resume
 <embed src="{{ 'assets/files/Paul_Dreyer_Resume.pdf' | relative_url }}" 
        type="application/pdf" 
        width="100%" 
-       height="100%" />
+       height="800px" />
 
-
-testing addl text
-
-testing addl text
-
-testing addl text
-
-testing addl text
-
-testing addl text
