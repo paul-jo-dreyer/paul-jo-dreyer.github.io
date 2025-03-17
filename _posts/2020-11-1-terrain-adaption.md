@@ -4,7 +4,7 @@ title: "Low Cost Haptic Prosthetics"
 author: "Paul Dreyer"
 categories: documentation
 tags: [documentation]
-image: terrain_adaption_wheel.JPG
+image: terrain_adaption_wheel_cropped.JPG
 ---
 
 ## Background
