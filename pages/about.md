@@ -16,17 +16,6 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
 
 ## Skills
 
-<!-- | Software      |                                   |          | Hardware |      |
-|---------------|-----------------------------------| -------- | -------- | ---- |
-| <b>Frontend</b> | React | | <b>Computer Aided Design (CAD)</b> | Onshape |
-| <b>Backend</b> | Python<br> Julia Lang | | <b>PCB Design</b> | KiCad |
-| <b>Embedded</b> | c++ | | <b></b> | |
-| <b>Optimal Control / RL</b> | Julia Lang<br> Python | | <b>Design For Manufacturing + Assembly</b> | 3D Printing</br> CNC Machining</br> Lathe</br> Water Jet</br> Sheet Metal Bending |
-| <b>Deep RL</b> | Python | | <b></b> | |
-| <b>Algorithms (LP / QP)</b> | Interior point methods</br> LQR</br> CVX MPC | | <b></b> | |
-| <b>Algorithms (NLP)</b> | iLQR</br> DIRCOL</br> | | <b></b> | |
-| <b>Algrotihms (DRL)</b> | PPO</br> TD3 | | <b></b> | | -->
-
 <table style="width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
   <thead>
     <tr style="background-color: #c9c9c9;"> <!-- Light grey background -->
