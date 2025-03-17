@@ -41,32 +41,79 @@ I'm in my final semester of a 5th year masters in Mechanical Engineering at Carn
       During my internship here, I developed a trajectory optimization algorithm that would create minimal collision 
       paths for general 3D objects to travel during the assembly of a system. I also developed an custom signed distance
       field (SDF) solver that would generate data structs for a given 3D object at a desired resolution.
-      ----------------
-      Language: Python
+    </p>
+    <p><b>Language:</b> Python</p>
+  </div>
+
+</div>
+
+<div style="display: flex; align-items: flex-start; padding: 16px; width: 100%;">
+
+  <!-- Image Container -->
+  <div style="flex: 0 0 auto; margin-right: 20px;">
+    <img src="{{ '/assets/img/Ford_logo.png' | relative_url }}" 
+         alt="photo not loaded"
+         style="width: 100px; height: auto;">
+  </div>
+
+  <!-- Text Container -->
+  <div style="flex: 1;">
+    <h2 style="margin-top: 0;">Ford Motors - Computer Vision Research Engineer (2023)</h2>
+    <p>
+      During the manufacturing process of a vehicle, it's critical to inspect the installation of 
+      components at various points along the line in order to catch errors early and minimize the 
+      lost costs of correcting assembly errors. Ford is exploring the use of deep neural nets to 
+      capture images of their vehicles, detect sub assemblies, and classify if the installation has
+      been successful. A huge bottle neck in this is the need to capture and label hundreds of 
+      images in order to train a model to accomplish this detection/classification task. During my 
+      internship at Ford, I developed a python tool which enables users to load in a CAD model of 
+      the target assembly, and generate a fully labeled synthetic image data set for training a model to 
+      complete this task, eliminating the need for a human to complete the arduous capture / label 
+      process. I found that through sufficient domain randomization, it was possible to train 
+      a model on 100% synnthetic images to achieve >90% accuracy when deployed in the real world.
+      Critically, this now allows engineering teams at ford to have a model pre-trained, ready to 
+      deploy as soon as a line change occurs, as opposed to deploying the assembly line change followed
+      by image collections, training, and testing tasks.
+    </p>
+    <p><b>Language:</b> Python</p>
+  </div>
+
+</div>
+
+
+<div style="display: flex; align-items: flex-start; padding: 16px; width: 100%;">
+
+  <!-- Image Container -->
+  <div style="flex: 0 0 auto; margin-right: 20px;">
+    <img src="{{ '/assets/img/biorobotics.png' | relative_url }}" 
+         alt="photo not loaded"
+         style="width: 100px; height: auto;">
+  </div>
+
+  <!-- Text Container -->
+  <div style="flex: 1;">
+    <h2 style="margin-top: 0;">CMU Biorobotics Lab - Research Assistant (2021-2022)</h2>
+    <p>
     </p>
   </div>
 
 </div>
 
 
-<div style="text-align: left;">
-  <img src="{{ '/assets/img/Ford_logo.png' | relative_url }}" 
-       alt="photo not loaded"
-       style="width: 50%; max-width: 100px; height: auto;">
-</div>
+<div style="display: flex; align-items: flex-start; padding: 16px; width: 100%;">
 
-### CMU Biorobotics Lab - Research Assistant (2021-2022)
+  <!-- Image Container -->
+  <div style="flex: 0 0 auto; margin-right: 20px;">
+    <img src="{{ '/assets/img/Air_Force_logo.png' | relative_url }}" 
+         alt="photo not loaded"
+         style="width: 100px; height: auto;">
+  </div>
 
-<div style="text-align: left;">
-  <img src="{{ '/assets/img/biorobotics.png' | relative_url }}" 
-       alt="photo not loaded"
-       style="width: 50%; max-width: 100px; height: auto;">
-</div>
+  <!-- Text Container -->
+  <div style="flex: 1;">
+    <h2 style="margin-top: 0;">United States Air Force - Communications (2014-2020)</h2>
+    <p>
+    </p>
+  </div>
 
-### United States Air Force - Communication Technician (2014-2020)
-
-<div style="text-align: left;">
-  <img src="{{ '/assets/img/Air_Force_logo.png' | relative_url }}" 
-       alt="photo not loaded"
-       style="width: 50%; max-width: 100px; height: auto;">
 </div>
