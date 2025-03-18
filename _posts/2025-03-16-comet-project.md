@@ -10,31 +10,90 @@ image: comet_front_purple.jpeg
 
 ## Background
 
-"Comet" is an open-source project I started in 2024. It is an autonomous assistant robot platform which acts as a brand new way to interface with software in the home / office. It moves around a room it is set up in via [suspension actuation](https://en.wikipedia.org/wiki/Cable_robots), which means that thin wires suspend the robot in space, and they change length to drive the robot around a room. This results in a robot which appears to hover in place very quietly, can answer questions, show apps / games on it's LCD screen, and deliver a rediculously cool experience
+"Comet" is an open-source project I started in 2024. It is an autonomous assistant robot platform 
+which acts as a brand new way to interface with software in the home / office. It moves around a 
+room it is set up in via [suspension actuation](https://en.wikipedia.org/wiki/Cable_robots), which 
+means that thin wires suspend the robot in space, and they change length to drive the robot around 
+a room. This results in a robot which appears to hover in place very quietly, can answer questions, 
+show apps / games on it's LCD screen, and deliver a rediculously cool experience
 
 ## Key Features / Efforts
 
-<!-- [Getting Started]({{ site.github.url }}{% post_url 2016-10-10-getting-started %}): getting started with installing Millennial, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme. -->
-
-
-<div style="display: flex; width: 100%; gap: 10px;">
+<!-- <div style="display: flex; width: 100%; gap: 10px;">
 
   <div style="flex: 1;">
-    <img src="assets/img/comet_iso_right.jpeg" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="assets/img/comet_front_app_callouts.png" alt="Image 1" style="width: 60%; max-width: 400px; height: 100%; object-fit: cover;">
   </div>
 
   <div style="flex: 1;">
     <img src="assets/img/comet_front_app_callouts.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
 
+</div> -->
+
+<div style="display: flex; width: 100%; height: 500px; gap: 10px;">
+
+  <!-- Left Column (2 stacked images) -->
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+    <div style="flex: 1;">
+      <img src="assets/img/comet_front_app_callouts.png" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="flex: 1;">
+      <img src="assets/img/comet_front_universal_zoom.jpeg" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+  </div>
+
+  <!-- Right Column (single large image) -->
+  <div style="flex: 1;">
+    <img src="assets/img/comet_front_app_callouts.png" alt="Image 3" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
 </div>
 
-###
+<!-- <div style="display: flex; width: 100%; gap: 10px;">
 
+  <div style="flex: 1;">
+    <img src="assets/img/comet_front_app_callouts.png" alt="Image 1" style="width: 60%; max-width: 400px; height: 100%; object-fit: cover;">
+  </div>
+
+  <div style="flex: 1;">
+    <img src="assets/img/comet_front_app_callouts.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+</div> -->
+
+### LCD Screen
+
+The robot is designed around it's 5" diameter LCD screen, which is used as the primary UXUI 
+interface. This screen can be used to launch apps such as the camera, opening YouTube, or just
+surfing the web.
+
+### UXUI
+
+The robot is equipped with a microphone and a forward facing camera which tracks your hand 
+positions. This means you can use your hands to control a cursor on Comet's screen, navigating apps
+or just interacting with the robot
+
+It also has little wings on either side it can 'flap' in 2 degrees of freedom. These wings are here
+for the sole purpose of giving the robot the ability to physically emote, allowing it to wave at
+you, act happy or worried, or even point at things with the laser pointers embedded in the wings!
+
+### Motion Control
+
+There are a ton of devils hiding in the details for controlling a system like this; including cable 
+stretch, uncertainties in motor mounting positions, and stochastic spooling of the tension wires to 
+name a few. Because of this, I chose to use a deep RL based control scheme, training a network via 
+model-free PPO, utilizing PyBullet as the simulator. Importantly, the network is making use of force
+control, which it can estimate via load cells inline on each suspension wire. This is mainly to
+attemnpt to avoid all of the issues with position control uncertainties that are nearly impossible 
+to squash at a low price point. I built custom infrastructure to enable detailed curriculum 
+scheduling, allowing the network to learn the basics like stabilizing the robo first, then 
+progressing to velocity tracking as well. 
 
 ## Design considerations
 
-Comet is born from a dream to have a cost-feasible autonomous robot in the home. To achieve this dream, every decision is built on the basis of:
+Comet is born from a dream to have a cost-feasible autonomous robot in the home. To achieve this 
+dream, every decision is built on the basis of:
 
 1. Accesible manufacturing techniques for most DIY makers
 2. Widely sourcable component selection
