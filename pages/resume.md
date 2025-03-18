@@ -5,7 +5,7 @@ permalink: /resume
 ---
 
 <div style="text-align: center; margin-bottom: 20px;">
-  <a href="{{ 'assets/files/Paul_Dreyer_Resume.pdf' | relative_url }}" 
+  <a href="{{ 'assets/files/Resume_Paul_Dreyer.pdf' | relative_url }}" 
      style="display: inline-block; padding: 10px 20px; background-color: #007ACC; color: white; text-decoration: none; border-radius: 5px;" 
      download>
     📄 Download Resume (PDF)
