@@ -4,7 +4,8 @@ title: "The Comet Robot"
 author: "Paul Dreyer"
 categories: documentation
 tags: [documentation]
-image: comet_char_1.png
+# image: comet_char_1.png
+image: comet_front_purple.jpeg
 ---
 
 ## Background
@@ -14,6 +15,19 @@ image: comet_char_1.png
 ## Key Features / Efforts
 
 <!-- [Getting Started]({{ site.github.url }}{% post_url 2016-10-10-getting-started %}): getting started with installing Millennial, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme. -->
+
+
+<div style="display: flex; width: 100%; gap: 10px;">
+
+  <div style="flex: 1;">
+    <img src="comet_iso_right.jpeg" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div style="flex: 1;">
+    <img src="comet_front_app_callouts.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+</div>
 
 ###
 
