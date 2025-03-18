@@ -9,6 +9,12 @@ image: monks_odb.png
 
 ## Background
 
+<div style="text-align: center;">
+  <img src="{{ 'assets/img/outlet_bot_cad_perspective.png' | relative_url }}" 
+       alt="photo not loaded"
+       style="width: 70%; max-width: 600px; height: auto;">
+</div>
+
 This is a robot which autonomously explores a room / corridor and tests each outlet for functionality. The use case here is
 demonstrating an ability for a robot to self-dock for recharging in an arbitrary room without the need for a custom charging base.
 
@@ -32,23 +38,10 @@ our compute, sensors, and motors into a single board.
 <div style="text-align: center;">
   <img src="{{ 'assets/img/monks_odb.png' | relative_url }}" 
        alt="photo not loaded"
-       style="width: 50%; max-width: 500px; height: auto;">
+       style="width: 70%; max-width: 600px; height: auto;">
 </div>
-
-
-
-###
 
 
 ## Design considerations
 
-Comet is born from a dream to have a cost-feasible autonomous robot in the home. To achieve this dream, every decision is built on the basis of:
 
-1. Accesible manufacturing techniques for most DIY makers
-2. Widely sourcable component selection
-
-## Project roadmap
-
-## Web-app
-
-## Team members
