@@ -12,7 +12,7 @@ permalink: /resume
   </a>
 </div>
 
-<embed src="{{ 'assets/files/Paul_Dreyer_Resume.pdf' | relative_url }}" 
+<embed src="{{ 'assets/files/Resume_Paul_Dreyer.pdf' | relative_url }}" 
        type="application/pdf" 
        width="100%" 
        height="800px" />
