@@ -10,7 +10,7 @@ image: comet_front_purple.jpeg
 
 ## Background
 
-"Comet" is an open-source project I started in 2024. It is an autonomous assistant robot platform 
+"Comet" is a (soon-to-be-open-source) project I started in 2024. It is an autonomous assistant robot platform 
 which acts as a brand new way to interface with software in the home / office. It moves around a 
 room it is set up in via [suspension actuation](https://en.wikipedia.org/wiki/Cable_robots), which 
 means that thin wires suspend the robot in space, and they change length to drive the robot around 
@@ -58,6 +58,8 @@ dream, every decision is built on the basis of:
 2. Widely sourcable component selection
 
 ## Project roadmap
+
+
 
 ## Web-app
 
