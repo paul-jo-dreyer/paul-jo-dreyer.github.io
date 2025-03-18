@@ -4,7 +4,6 @@ title: "The Comet Robot"
 author: "Paul Dreyer"
 categories: documentation
 tags: [documentation]
-# image: comet_char_1.png
 image: comet_front_purple.jpeg
 ---
 
@@ -69,5 +68,38 @@ dream, every decision is built on the basis of:
        style="width: 50%; max-width: 500px; height: auto;">
 </div>
 
+Over winter break this year, I decided to build a web-app for the robot as well to branch out the 
+functionality and give some additional control features. I built this from scratch primarily using 
+React and React JS on the frontend, and almost entirely Python + SQL on the backend. The web app
+hosts some really cool features listed below!:
 
-## Team members
+#### -- Marketplace: In-house sales + App Store beta --
+
+This tool is dedicated to listing the robot and its variants for sale on the web app. Payments are
+not yet integrated, but the general layout and scaling routine is built out!
+
+#### -- Generative Studio --
+
+Whats a project in 2025 without a little gen AI. Generative studio is my take on the current state
+of what's possible for the integration of generative AI into user-facing code bases. Here, a user
+can query the model to do some unique customization for the robot, and the studio directly updates 
+the code base in a hot-reload safe manner, and pushes changes to the robot instantly! My current
+demo includes allowing users to create truly unique and fully customizable Comet Character face 
+designs (i.e. the purple floating circles are Comet's stock character face). The secret sauce here 
+is code formatting and giving truly enveloping context wrapping to the LLM integrating the user
+requests with background detail.
+
+#### -- Pilot --
+
+This page will allow users to control the robot from anywhere with an internet connection! Currently
+I have the control interface developed from smartphone screens, and the communication scheme built,
+but this feature needs a mobile robot to fully test on first!
+
+#### -- User Data base --
+
+I'm using SQL to manage a user database on the backend. This stores limited user information such as 
+account login, customization preferences, etc.
+
+## Other Team members
+
+#### Adrian K. (Joined March 2025!)
