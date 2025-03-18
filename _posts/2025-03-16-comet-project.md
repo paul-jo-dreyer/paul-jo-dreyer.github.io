@@ -20,11 +20,11 @@ image: comet_front_purple.jpeg
 <div style="display: flex; width: 100%; gap: 10px;">
 
   <div style="flex: 1;">
-    <img src="comet_iso_right.jpeg" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="assets/img/comet_iso_right.jpeg" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
 
   <div style="flex: 1;">
-    <img src="comet_front_app_callouts.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="assets/img/comet_front_app_callouts.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
 
 </div>
