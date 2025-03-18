@@ -1,13 +1,21 @@
-<div style="max-width: 600px; margin: auto; position: relative; overflow: hidden;">
-    <div class="carousel" style="display: flex; transition: transform 0.5s ease;">
-      <img src="assets/img/comet_front_app_callouts.png" alt="Image 1" style="width: 100%; flex-shrink: 0;">
-      <img src="assets/img/comet_char_1.png" alt="Image 2" style="width: 100%; flex-shrink: 0;">
-      <img src="assets/img/comet_front_universal_zoom.jpeg" alt="Image 3" style="width: 100%; flex-shrink: 0;">
-      <img src="assets/img/comet_iso_right.jpeg" alt="Image 4" style="width: 100%; flex-shrink: 0;">
+<div style="max-width: 700px; margin: auto; display: flex; align-items: center; justify-content: space-between;">
+
+    <!-- Left Button -->
+    <button onclick="prevSlide()" style="background: none; border: none; font-size: 2rem;">❮</button>
+  
+    <!-- Carousel Container -->
+    <div style="overflow: hidden; flex-grow: 1; margin: 0 10px;">
+      <div class="carousel" style="display: flex; transition: transform 0.5s ease; align-items: center;">
+        <img src="assets/img/comet_front_app_callouts.png" alt="Image 1" style="height: 400px; width: auto; flex-shrink: 0;">
+        <img src="assets/img/comet_char_1.png" alt="Image 2" style="height: 400px; width: auto; flex-shrink: 0;">
+        <img src="assets/img/comet_front_universal_zoom.jpeg" alt="Image 3" style="height: 400px; width: auto; flex-shrink: 0;">
+        <img src="assets/img/comet_iso_right.jpeg" alt="Image 4" style="height: 400px; width: auto; flex-shrink: 0;">
+      </div>
     </div>
   
-    <button onclick="prevSlide()" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">❮</button>
-    <button onclick="nextSlide()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">❯</button>
+    <!-- Right Button -->
+    <button onclick="nextSlide()" style="background: none; border: none; font-size: 2rem;">❯</button>
+  
   </div>
   
   {% raw %}
@@ -31,4 +39,3 @@
     }
   </script>
   {% endraw %}
-  
