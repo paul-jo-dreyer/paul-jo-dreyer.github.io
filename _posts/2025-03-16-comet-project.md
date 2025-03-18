@@ -32,25 +32,7 @@ show apps / games on it's LCD screen, and deliver a rediculously cool experience
 </div> -->
 
 
-
-<div style="display: flex; width: 100%; gap: 10px; align-items: stretch;">
-
-  <!-- Left Column (2 stacked images) -->
-  <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
-    <div style="flex: 1;">
-      <img src="assets/img/comet_char_1.png" alt="Image 1" style="width: 100%; height: auto; display: block;">
-    </div>
-    <div style="flex: 1;">
-      <img src="assets/img/comet_front_universal_zoom.jpeg" alt="Image 2" style="width: 100%; height: auto; display: block;">
-    </div>
-  </div>
-
-  <!-- Right Column (single large image) -->
-  <div style="flex: 1;">
-    <img src="assets/img/comet_front_app_callouts.png" alt="Image 3" style="width: 100%; height: auto; display: block;">
-  </div>
-
-</div>
+{% include carousel.html %}
 
 ### LCD Screen
 
