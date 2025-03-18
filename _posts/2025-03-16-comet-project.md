@@ -19,28 +19,15 @@ show apps / games on it's LCD screen, and deliver a rediculously cool experience
 
 ## Key Features / Efforts
 
-<!-- <div style="display: flex; width: 100%; gap: 10px;">
-
-  <div style="flex: 1;">
-    <img src="assets/img/comet_front_app_callouts.png" alt="Image 1" style="width: 60%; max-width: 400px; height: 100%; object-fit: cover;">
-  </div>
-
-  <div style="flex: 1;">
-    <img src="assets/img/comet_front_app_callouts.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-
-</div> -->
-
-
 {% include carousel.html %}
 
-### LCD Screen
+#### -- LCD Screen -- 
 
 The robot is designed around it's 5" diameter LCD screen, which is used as the primary UXUI 
 interface. This screen can be used to launch apps such as the camera, opening YouTube, or just
 surfing the web.
 
-### UXUI
+#### -- UXUI -- 
 
 The robot is equipped with a microphone and a forward facing camera which tracks your hand 
 positions. This means you can use your hands to control a cursor on Comet's screen, navigating apps
@@ -50,7 +37,7 @@ It also has little wings on either side it can 'flap' in 2 degrees of freedom. T
 for the sole purpose of giving the robot the ability to physically emote, allowing it to wave at
 you, act happy or worried, or even point at things with the laser pointers embedded in the wings!
 
-### Motion Control
+#### -- Motion Control -- 
 
 There are a ton of devils hiding in the details for controlling a system like this; including cable 
 stretch, uncertainties in motor mounting positions, and stochastic spooling of the tension wires to 
