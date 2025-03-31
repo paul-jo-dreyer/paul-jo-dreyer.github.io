@@ -4,16 +4,16 @@ title: "Outlet Testing Robot"
 author: "Paul Dreyer"
 categories: documentation
 tags: [documentation]
-image: monks_odb.png
+image: outlet_bot_cad_perspective.png
 ---
 
 ## Background
 
-<div style="text-align: center;">
+<!-- <div style="text-align: center;">
   <img src="{{ 'assets/img/outlet_bot_cad_perspective.png' | relative_url }}" 
        alt="photo not loaded"
        style="width: 70%; max-width: 600px; height: auto;">
-</div>
+</div> -->
 
 This is a robot which autonomously explores a room / corridor and tests each outlet for functionality. The use case here is
 demonstrating an ability for a robot to self-dock for recharging in an arbitrary room without the need for a custom charging base.

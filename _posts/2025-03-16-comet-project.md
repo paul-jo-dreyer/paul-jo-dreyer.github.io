@@ -100,6 +100,3 @@ but this feature needs a mobile robot to fully test on first!
 I'm using SQL to manage a user database on the backend. This stores limited user information such as 
 account login, customization preferences, etc.
 
-## Other Team members
-
-#### Adrian K. (Joined March 2025!)
