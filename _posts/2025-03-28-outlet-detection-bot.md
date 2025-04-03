@@ -66,6 +66,4 @@ outlets to test.
 </div>
 
 
-## Design considerations
-
 
