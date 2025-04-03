@@ -4,7 +4,7 @@ title: "Outlet Testing Robot"
 author: "Paul Dreyer"
 categories: documentation
 tags: [documentation]
-image: outlet_bot_cad_perspective.png
+image: sherlock_ohms_ISO.jpeg
 ---
 
 ## Background
@@ -36,7 +36,7 @@ I also developed our main PCB which allows us to get rid of all jumper wires in 
 our compute, sensors, and motors into a single board.
 
 <div style="text-align: center;">
-  <img src="{{ 'assets/img/monks_odb.png' | relative_url }}" 
+  <img src="{{ 'assets/img/sherlock_ohms_top_open_hub.jpeg' | relative_url }}" 
        alt="photo not loaded"
        style="width: 70%; max-width: 600px; height: auto;">
 </div>
