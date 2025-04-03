@@ -4,7 +4,7 @@ title: "Outlet Testing Robot"
 author: "Paul Dreyer"
 categories: documentation
 tags: [documentation]
-image: sherlock_ohms_ISO.jpeg
+image: sherlock_ohms_ISO_wide.png
 ---
 
 ## Background
