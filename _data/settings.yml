@@ -19,9 +19,9 @@ social:
 # - {icon: 'rss-square', link: 'rss-feed.xml'}
 
 # Customize site text
-pagination:
-  next_page: 'Next'
-  previous_page: 'Previous'
+# pagination:
+#   next_page: 'Next'
+#   previous_page: 'Previous'
 
 sharing_button_prompt: 'Feel free to share!'
 
