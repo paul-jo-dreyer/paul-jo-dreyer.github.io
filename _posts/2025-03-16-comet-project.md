@@ -56,9 +56,6 @@ dream, every decision is built on the basis of:
 1. Accesible manufacturing techniques for most DIY makers
 2. Widely sourcable component selection
 
-## Project roadmap
-
-
 
 ## Web-app
 
