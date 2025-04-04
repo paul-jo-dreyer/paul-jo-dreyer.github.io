@@ -48,7 +48,7 @@ Finally, the robot is also equipped with encoders on each drive motor, as well a
 measurement unit (IMU) onboard for simultaneous localization and mapping (SLAM) closure. 
 
 <div style="text-align: center;">
-  <img src="{{ 'assets/img/sherlock_ohms_side_left.jpeg' | relative_url }}" 
+  <img src="{{ 'assets/img/sherlock_ohms_tool_head.jpeg' | relative_url }}" 
        alt="photo not loaded"
        style="width: 50%; max-width: 500px; height: auto;">
 </div>
