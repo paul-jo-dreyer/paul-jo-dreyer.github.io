@@ -47,6 +47,12 @@ tracking experiences errors that could damage the probes.
 Finally, the robot is also equipped with encoders on each drive motor, as well as an inertial
 measurement unit (IMU) onboard for simultaneous localization and mapping (SLAM) closure. 
 
+<div style="text-align: center;">
+  <img src="{{ 'assets/img/sherlock_ohms_side_left.jpeg' | relative_url }}" 
+       alt="photo not loaded"
+       style="width: 50%; max-width: 500px; height: auto;">
+</div>
+
 
 ## Contributions
 
