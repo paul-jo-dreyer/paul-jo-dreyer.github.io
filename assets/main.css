@@ -3200,11 +3200,23 @@
     margin: 60px auto 40px;
   }
 }
+@media only screen and (max-width: 576px) {
+  .project__navigation {
+    margin: 40px auto 30px;
+  }
+}
 @media all, bookshop {
   .project__prev:hover {
     color: #110E38;
   }
-  .project__prev:hover .project__nav__title .arrow-right {
+  .project__prev:hover .project__nav__title .arrow-left {
+    opacity: 1;
+    transform: translateX(-3px);
+  }
+  .project__next:hover {
+    color: #110E38;
+  }
+  .project__next:hover .project__nav__title .arrow-right {
     opacity: 1;
     transform: translateX(3px);
   }
@@ -3216,13 +3228,26 @@
     line-height: 1.2;
     text-transform: uppercase;
   }
+}
+@media only screen and (max-width: 576px) {
+  .project__nav__info {
+    font-size: 10px;
+  }
+}
+@media all, bookshop {
   .project__nav__title {
     margin-bottom: 20px;
     font-size: 40px;
     line-height: 1.2;
   }
   .project__nav__title .arrow-right {
-    margin-left: 2px;
+    margin-right: 4px;
+    font-size: 30px;
+    opacity: 0;
+    transition: 0.2s linear;
+  }
+  .project__nav__title .arrow-left {
+    margin-left: 4px;
     font-size: 30px;
     opacity: 0;
     transition: 0.2s linear;
@@ -3231,6 +3256,11 @@
 @media only screen and (max-width: 768px) {
   .project__nav__title {
     font-size: 36px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .project__nav__title {
+    font-size: 28px;
   }
 }
 @media all, bookshop {
