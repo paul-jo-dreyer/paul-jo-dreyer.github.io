@@ -4,14 +4,15 @@
   margin-top: 44px;
   padding: 96px 0 60px;
   overflow: hidden;
-  background: linear-gradient(90deg, $primary-color 0%, $secondary-color 167%);
+  background: linear-gradient(0deg, $primary-color 0%, $secondary-color 167%);
 
   .social {
     margin-bottom: 40px;
 
     .social__item {
       margin: 0 2px;
-      font-size: 0;
+      font-size: 18px;
+    
     }
 
     .social__link {
@@ -21,14 +22,14 @@
       line-height: 40px;
       font-size: 16px;
       border-radius: 50%;
-      color: $primary-color;
+      color: black;
       background: $white;
       transition: all .25s;
       will-change: transform;
 
       &:hover {
         transform: scale(0.9);
-        color: $primary-color;
+        color: black;
 
         &::after {
           content: none;

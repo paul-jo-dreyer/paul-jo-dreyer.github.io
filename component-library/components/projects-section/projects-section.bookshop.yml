@@ -18,8 +18,7 @@ blueprint:
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
   title: Latest Works
-  description_html: I show only my best works built completely with passion,
-    simplicity, and creativity!
+  description_html: Here's what I geek out on!
   link_url: /projects
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint

@@ -3,7 +3,13 @@
   <ul class="social__list list-reset">
     {% for social in site.data.social_links.social %}
     <li class="social__item">
-      <a class="social__link" href="{{social.link}}" target="_blank" rel="noopener" aria-label="{{social.icon | downcase}} icon"><i class="ion ion-logo-{{social.icon | downcase}}"></i></a>
+      <a class="social__link" href="{{ social.link }}" target="_blank" rel="noopener" aria-label="{{ social.icon | downcase }} icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        {% if social.icon %}
+          <i class="ion ion-logo-{{ social.icon | downcase }}" style="display: block;"></i>
+        {% elsif social.icon-image %}
+          <img src="{{ social['icon-image'] | prepend: '/' }}" alt="{{ social.name }}" style="width: 1em; height: 1em; display: block; object-fit: contain;">
+        {% endif %}
+      </a>
     </li>
     {% endfor %}
   </ul>
