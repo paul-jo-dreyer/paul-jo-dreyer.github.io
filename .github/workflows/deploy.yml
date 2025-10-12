@@ -1,0 +1,46 @@
+name: Build and Deploy Bookshop Site
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository
+      - uses: actions/checkout@v3
+
+      # 2. Set up Node.js for npm commands
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # 3. Set up Ruby for Jekyll
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+
+      # 4. Install dependencies
+      - name: Install npm packages
+        run: npm install
+
+      - name: Install Jekyll gems
+        run: bundle install
+
+      # 5. Build the site
+      - name: Build Jekyll/Bookshop site
+        run: npm run jekyll
+
+      # 6. Deploy the _site folder to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages 
