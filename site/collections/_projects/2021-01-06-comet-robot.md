@@ -4,12 +4,47 @@ title: Comet
 subtitle: Robot Build
 image: '/images/comet/comet_char_1.png'
 ---
-In qua quid est boni praeter summam voluptatem, et eam sempiternam? Cur post Tarentum ad Archytam? Qua ex cognitione facilior facta est investigatio rerum occultissimarum. Negat enim tenuissimo victu, id est contemptissimis escis et potionibus, minorem voluptatem.
+# Background
+Comet is my main squeeze, I've been working on this robot for about a year and a half from the first
+idea, and have been pouring as much love as possible into this little guy. 
 
-![Palm trees](/images/image-example-3.jpg){: width="1200" height="900"}
+Comet is a suspension actuated robot (AKA Cable Driven Parallel Robot), meaning it swings around the
+room suspended by four actuated cables. It's entire purpose is to be an interactive companion bot,
+and is really just a platform for me to learn and implement a ton of different skills during its
+development. 
 
-Praeteritis, inquit, gaudeo. Praeteritis, inquit, gaudeo. Quod, inquit, quamquam voluptatibus quibusdam est saepe iucundius, tamen expetitur propter voluptatem. Scientiam pollicentur, quam non erat mirum sapientiae cupido patria esse cariorem. Non quaeritur autem quid naturae tuae consentaneum sit, sed quid disciplinae. Ita ne hoc quidem modo paria peccata sunt. Ita prorsus, inquam; Nunc ita separantur, ut disiuncta sint, quo nihil potest esse perversius. Virtutibus igitur rectissime mihi videris et ad consuetudinem nostrae orationis.
+# Why Suspension?
+Yes, it sounds strange - why would I want a robot swinging around the room near
+my head? Well, it turns out that while this does present some really unique challenges - this style
+of locomotion also offers some really cool benefits too. Unlike noisy rotor-based drones - Comet can 
+move almost silently around the room, and because the locomotive energy is located off-body, the 
+robot can "hover" or hangout in a position almost indefinetly - so no need to worry about short 
+battery life here. Additionally, being a pseudo-aerial vehicle makes the actual locomotion task
+much easier to plan around, and we can bypass many of the challenges that ground based vehicles face!
 
-![Sea](/images/image-example-4.jpg){: width="1200" height="900"}
+# What can it do?
 
-Defecerit Sed isti ipsi, qui voluptate et dolore omnia metiuntur, nonne clamant sapienti plus semper adesse quod velit quam quod nolit? Quae quidem sapientes sequuntur duce natura tamquam videntes; Quod enim dissolutum sit, id esse sine sensu, quod autem sine sensu. Sunt omnia Longum est enim ad omnia respondere, quae a te dicta sunt. Nam cui proposito sit conservatio sui, necesse est huic partes quoque sui caras suo genere laudabiles servari.
+Comet is equiped with a 5" round LCD screen, as well as a forward facing camera. This let's it
+deploy a GUI for the user, where you can move a cusor around the screen using hand-tracking from the
+onboard camera. I can pull up a youtube video while I;m on the couch, or see what my cat's up to 
+while I'm out! LOL
+
+![App UI](/images/comet/comet_front_apps.PNG){: width="1200" height="900"}
+
+# How does it move?
+
+Comet is semi-autnomous; meaning it first identifies a person in the room, and if you raise your hand
+it will swing over to you. However, there are a suprising number of "Devil-in-the-details" to make
+this work:
+- The winch mounting locations are highly uncertain -> dinematic uncertainty
+- Cables should not every go slack -> dynamics constraints
+- Real cable stretch -> unmodeled dynamics
+
+All of these things present challeneges to controlling the robot motion. I did a deep dive
+on training a deep neural network to handle these challenges which you can read more about in this
+article <a href="/blog/teaching-a-robot-to-swing-with-deep-rl" target="_blank" rel="noopener">
+<strong>(Here)</strong></a>.
+
+At a systems level, Comet is wirelessly connected to four custom winch actuators around the room.
+Each of these actuators constantly report the estimated spooled cable length, as well as a measurment
+of the tension forces on each cable. Comet then reports back desired tension commands to each actuator.
