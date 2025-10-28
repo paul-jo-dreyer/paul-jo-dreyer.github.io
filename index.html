@@ -29,6 +29,23 @@
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/main.css">
+
+  <!-- Latex  -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 
 <body>
@@ -181,7 +198,7 @@
 
           <div class="c-hero__right">
             <div class="c-hero__image">
-              <img loading="lazy" src="/images/me/me_rectangle.jpg" alt="">
+              <img loading="lazy" src="/images/me/me_mountain_close.JPG" alt="">
             </div>
           </div>
 
@@ -286,6 +303,29 @@
 
 <article class="c-project-card col col-4 col-d-6 col-t-12">
   <div class="c-project-card__content">
+    <a href="/project/exploration" class="c-project-card__image">
+      <img loading="lazy" src="/images/exploration/mapping.png" alt="Robot Exploration">
+    </a>
+    <div class="c-project-card__info">
+      <div class="c-project-card__info-wrap">
+        <h3 class="c-project-card__title">Robot Exploration</h3>
+      </div>
+      <div class="c-project-card__info-wrap">
+        
+        <div class="c-project-card__subtitle">Algorithms</div>
+        
+      </div>
+    </div>
+  </div>
+</article>
+<!--bookshop-live end-->
+              
+            
+              
+                <!--bookshop-live name(project-card/project-card.jekyll.html) params(project=project) context(project=site.projects[4]) -->
+
+<article class="c-project-card col col-4 col-d-6 col-t-12">
+  <div class="c-project-card__content">
     <a href="/project/active-grousers" class="c-project-card__image">
       <img loading="lazy" src="/images/terrain/terrain_adaption_wheel.JPG" alt="Active Grousers">
     </a>
@@ -305,7 +345,7 @@
               
             
               
-                <!--bookshop-live name(project-card/project-card.jekyll.html) params(project=project) context(project=site.projects[4]) -->
+                <!--bookshop-live name(project-card/project-card.jekyll.html) params(project=project) context(project=site.projects[5]) -->
 
 <article class="c-project-card col col-4 col-d-6 col-t-12">
   <div class="c-project-card__content">
@@ -365,6 +405,54 @@
 
     
     <div class="c-blog-card__image-wrap">
+      <a class="c-blog-card__image" href="/blog/ik-optimization">
+        <img loading="lazy" src="/images/planar_arm/cover_no_words.png" alt="Optimal Kinematic Posing">
+      </a>
+    </div>
+    
+
+    <div class="c-blog-card__content">
+
+      
+      <div class="c-blog-card__tags-box">
+        
+        <a href="/tag/kinematics" class="c-blog-card__tag">Kinematics</a>
+        
+        <a href="/tag/optimization" class="c-blog-card__tag">Optimization</a>
+        
+      </div>
+      
+
+      <h2 class="c-blog-card__title">
+        <a href="/blog/ik-optimization">Optimal Kinematic Posing</a>
+      </h2>
+
+      <p class="c-blog-card__excerpt">
+        Viewing inverse kinematics as a constrained optimization problem
+      </p>
+
+      <div class="c-blog-card__meta">
+        <div class="c-blog-card__author-image">
+          <img loading="lazy" src="/images/me/me_round.png" alt="Paul Dreyer">
+        </div>
+        <div class="c-blog-card__info">
+          <div class="c-blog-card__author-name">Paul Dreyer</div>
+          <span class="c-blog-card__date"><time datetime="2025-10-16T05:01:35-07:00">16 Oct 2025</time></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--bookshop-live end-->
+              
+                <!--bookshop-live name(blog-card/blog-card.jekyll.html) params(post=post) context(post=site.posts[1]) -->
+
+<div class="c-blog-card col col-4 col-d-6 col-t-12">
+  <div class="c-blog-card__inner">
+
+    
+    <div class="c-blog-card__image-wrap">
       <a class="c-blog-card__image" href="/blog/robot-calibration-wiggle-to-learn-about-yourself">
         <img loading="lazy" src="/images/robustness/robustness.png" alt="Robot Calibration: Wiggle to Learn About Yourself">
       </a>
@@ -388,9 +476,7 @@
       </h2>
 
       <p class="c-blog-card__excerpt">
-        Introduction
-
-For most robots, having a decent dynamics model is a prerequisite for many critical tasks needed for th...
+        Input-output error minimization for online dynamical model parameter calibration
       </p>
 
       <div class="c-blog-card__meta">
@@ -399,7 +485,7 @@ For most robots, having a decent dynamics model is a prerequisite for many criti
         </div>
         <div class="c-blog-card__info">
           <div class="c-blog-card__author-name">Paul Dreyer</div>
-          <span class="c-blog-card__date"><time datetime="2025-09-15T11:05:55-04:00">15 Sep 2025</time></span>
+          <span class="c-blog-card__date"><time datetime="2025-09-15T08:05:55-07:00">15 Sep 2025</time></span>
         </div>
       </div>
 
@@ -408,7 +494,7 @@ For most robots, having a decent dynamics model is a prerequisite for many criti
 </div>
 <!--bookshop-live end-->
               
-                <!--bookshop-live name(blog-card/blog-card.jekyll.html) params(post=post) context(post=site.posts[1]) -->
+                <!--bookshop-live name(blog-card/blog-card.jekyll.html) params(post=post) context(post=site.posts[2]) -->
 
 <div class="c-blog-card col col-4 col-d-6 col-t-12">
   <div class="c-blog-card__inner">
@@ -438,9 +524,7 @@ For most robots, having a decent dynamics model is a prerequisite for many criti
       </h2>
 
       <p class="c-blog-card__excerpt">
-        Introduction
-
-I’ve been developing a cable driven parallel robot I call ‘Comet’. It’s intended to be an interactive, ...
+        Using deep RL to learn a control policy for a cable driven underactuated robot
       </p>
 
       <div class="c-blog-card__meta">
@@ -449,7 +533,7 @@ I’ve been developing a cable driven parallel robot I call ‘Comet’. It’s 
         </div>
         <div class="c-blog-card__info">
           <div class="c-blog-card__author-name">Paul Dreyer</div>
-          <span class="c-blog-card__date"><time datetime="2025-09-07T08:01:35-04:00">07 Sep 2025</time></span>
+          <span class="c-blog-card__date"><time datetime="2025-09-07T05:01:35-07:00">07 Sep 2025</time></span>
         </div>
       </div>
 
