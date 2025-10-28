@@ -14,8 +14,28 @@ layout: default
 
   {% if page.previous or page.next %}
   <div class="project__navigation animate" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 40px;">
+
+    <!-- NOTE: This section is hacked to deal with reverese sort issue -->
+    {% if page.next %}
+    <a class="project__prev" href="{{page.next.url}}" style="flex: 1; text-align: left;">
+      <div class="project__box">
+        <span class="project__nav__info">Previous Project</span>
+        <h4 class="project__nav__title">{{page.next.title}}<i class="ion ion-md-arrow-round-back arrow-left"></i></h4>
+      </div>
+    </a>
+    {% endif %}
     
     {% if page.previous %}
+    <a class="project__next" href="{{page.previous.url}}" style="flex: 1; text-align: right;">
+      <div class="project__box">
+        <span class="project__nav__info">Next Project</span>
+        <h4 class="project__nav__title"><i class="ion ion-md-arrow-round-forward arrow-right"></i>{{page.previous.title}}</h4>
+      </div>
+    </a>
+    {% endif %}
+
+    <!-- NOTE: This is the original -->
+    <!-- {% if page.previous %}
     <a class="project__prev" href="{{page.previous.url}}" style="flex: 1; text-align: left;">
       <div class="project__box">
         <span class="project__nav__info">Previous Project</span>
@@ -31,7 +51,8 @@ layout: default
         <h4 class="project__nav__title"><i class="ion ion-md-arrow-round-forward arrow-right"></i>{{page.next.title}}</h4>
       </div>
     </a>
-    {% endif %}
+    {% endif %} -->
+ 
 
   </div>
   {% endif %}

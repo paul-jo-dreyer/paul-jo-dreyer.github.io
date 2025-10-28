@@ -2,6 +2,7 @@
 title:  Teaching A Robot To Swing With Deep RL (Part 1)
 date:   2025-09-07 15:01:35 +0300
 image:  '/images/comet/comet_char_1.png'
+description: Using deep RL to learn a control policy for a cable driven underactuated robot
 tags:   [Robotics, Deep Reinforcement Learning]
 ---
 
