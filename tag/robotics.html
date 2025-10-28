@@ -29,6 +29,23 @@
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/main.css">
+
+  <!-- Latex  -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 
 <body>
@@ -188,9 +205,7 @@
                 </h2>
           
                 <p class="article__excerpt">
-                  Introduction
-
-I’ve been developing a cable driven parallel robot I call ‘Comet’. It’s intended to be an interactive, ...
+                  Using deep RL to learn a control policy for a cable driven underactuated robot
                 </p>
           
                 <div class="article__meta">
@@ -199,7 +214,7 @@ I’ve been developing a cable driven parallel robot I call ‘Comet’. It’s 
                   </div>
                   <div class="article-info">
                     <div class="article__author-name">Paul Dreyer</div>
-                    <span class="article__date"><time datetime="2025-09-07T08:01:35-04:00">07 Sep 2025</time></span>
+                    <span class="article__date"><time datetime="2025-09-07T05:01:35-07:00">07 Sep 2025</time></span>
                   </div>
                 </div>
           

@@ -35,6 +35,23 @@ idea, and have been pouring as much love as possible into this little guy.
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/main.css">
+
+  <!-- Latex  -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 
 <body>
@@ -211,9 +228,9 @@ while I’m out! LOL</p>
 it will swing over to you. However, there are a suprising number of “Devil-in-the-details” to make
 this work:</p>
 <ul>
-  <li>The winch mounting locations are highly uncertain -&gt; dinematic uncertainty</li>
-  <li>Cables should not every go slack -&gt; dynamics constraints</li>
-  <li>Real cable stretch -&gt; unmodeled dynamics</li>
+  <li>The winch mounting locations are highly uncertain -&gt; kinematic uncertainty</li>
+  <li>Real cables stretch -&gt; unmodeled dynamics</li>
+  <li>Cables should not go slack -&gt; control constraints</li>
 </ul>
 
 <p>All of these things present challeneges to controlling the robot motion. I did a deep dive
@@ -229,7 +246,8 @@ of the tension forces on each cable. Comet then reports back desired tension com
 
   
   <div class="project__navigation animate" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 40px;">
-    
+
+    <!-- NOTE: This section is hacked to deal with reverese sort issue -->
     
     <a class="project__prev" href="/project/winch-actuator" style="flex: 1; text-align: left;">
       <div class="project__box">
@@ -238,7 +256,7 @@ of the tension forces on each cable. Comet then reports back desired tension com
       </div>
     </a>
     
-
+    
     
     <a class="project__next" href="/project/sherlock-ohms" style="flex: 1; text-align: right;">
       <div class="project__box">
@@ -247,6 +265,26 @@ of the tension forces on each cable. Comet then reports back desired tension com
       </div>
     </a>
     
+
+    <!-- NOTE: This is the original -->
+    <!-- 
+    <a class="project__prev" href="/project/sherlock-ohms" style="flex: 1; text-align: left;">
+      <div class="project__box">
+        <span class="project__nav__info">Previous Project</span>
+        <h4 class="project__nav__title">Sherlock Ohms<i class="ion ion-md-arrow-round-back arrow-left"></i></h4>
+      </div>
+    </a>
+    
+
+    
+    <a class="project__next" href="/project/winch-actuator" style="flex: 1; text-align: right;">
+      <div class="project__box">
+        <span class="project__nav__info">Next Project</span>
+        <h4 class="project__nav__title"><i class="ion ion-md-arrow-round-forward arrow-right"></i>Winch Actuator</h4>
+      </div>
+    </a>
+     -->
+ 
 
   </div>
   

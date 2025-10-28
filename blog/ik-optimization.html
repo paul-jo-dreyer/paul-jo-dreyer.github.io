@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Optimal Kinematic Posing</title>
+  <meta name='description' content='Viewing inverse kinematics as a constrained optimization problem'>
+
+  <link rel="canonical" href="http://localhost:6060/blog/ik-optimization">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Optimal Kinematic Posing – Paul Dreyer">
+  <meta name="twitter:description" content="Viewing inverse kinematics as a constrained optimization problem">
+  <meta name="twitter:image:src" content="http://localhost:6060/images/planar_arm/cover_no_words.png">
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="Optimal Kinematic Posing – Paul Dreyer">
+  <meta property="og:description" content="Viewing inverse kinematics as a constrained optimization problem">
+  <meta property="og:image" content="http://localhost:6060/images/planar_arm/cover_no_words.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Ionicons -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/main.css">
+
+  <!-- Latex  -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+
+<body>
+
+    
+
+    <!-- begin header -->
+<header class="c-header">
+  <div class="container">
+    <div class="row">
+      <div class="c-header__inner">
+
+        <div class="logo">
+          <a class="logo__link" href="/">
+          
+            <img class="logo__image" src="/images/name_120_60.png" alt="Paul Dreyer">
+          
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <div class="main-nav__box">
+
+            <div class="nav__icon-close">
+              <i class="ion ion-md-close"></i>
+            </div>
+
+            <div class="nav__title">Menu</div>
+
+              <ul class="nav__list list-reset">
+
+              
+                
+                <li class="nav__item">
+                  <a href="/" class="nav__link">Home</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/about/" class="nav__link">About</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/projects/" class="nav__link">Projects</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/blog/" class="nav__link">Blog</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/resume/" class="nav__link">Resume</a>
+                </li>
+                
+              
+
+            </ul>
+          </div>
+
+          <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(social-link.jekyll.html) params() context() -->
+
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com/paul-jo-dreyer" target="_blank" rel="noopener" aria-label="github icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-github" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://www.linkedin.com/in/paul-dreyer-cmu/" target="_blank" rel="noopener" aria-label="linkedin icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-linkedin" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://medium.com/@pauldreyer345" target="_blank" rel="noopener" aria-label=" icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <img src="/images/logos/medium-logo.jpg" alt="Medium" style="width: 1em; height: 1em; display: block; object-fit: contain;">
+        
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+<!--bookshop-live end-->
+        </nav>
+
+        <div class="nav-button">
+          <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+    <div class="post-top">
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="col col-6 col-d-12">
+        <div class="post-image">
+          <img loading="lazy" src="/images/planar_arm/cover_no_words.png" alt="Optimal Kinematic Posing">
+        </div>
+      </div>
+      
+
+      <div class="col col-6 col-d-12">
+        <div class="post__info">
+
+          
+          <div class="post-tags">
+            
+              <a href="/tag/kinematics" class="post-tags__tag">Kinematics</a>
+            
+              <a href="/tag/optimization" class="post-tags__tag">Optimization</a>
+            
+          </div>
+          
+
+
+          <h1 class="post__title">Optimal Kinematic Posing</h1>
+
+          <div class="post__meta">
+            <div class="post__author-image">
+              <img loading="lazy" src="/images/me/me_round.png" alt="Paul Dreyer">
+            </div>
+
+            <div class="post__meta-bottom">
+              <div class="post__author">Paul Dreyer</div>
+              <time class="post__date" datetime="2025-10-16T05:01:35-07:00">16 Oct 2025</time>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- begin post -->
+<div class="container animate">
+
+  <article class="post">
+
+    <div class="post__content">
+      <p><strong><em>Forward Kinematics (FK)</em></strong> - Given a set of joint angles, determine the pose of the end effector.</p>
+
+<p><strong><em>Inverse Kinematics (IK)</em></strong> - Given a pose of the end effector, determine a set of valid joint angles.</p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Suppose we want to solve the inverse kinematics (IK) for a robot in order to do something useful, like preparing to grasp an object. In many kinematic problems, it’s possible to derive an explicit solution to the IK equations, yielding one or more valid joint configurations. However, many tutorials that cover these analytical methods overlook real-world constraints such as joint limits, torque limits, etc.</p>
+
+<p>Instead, we can treat IK as an optimization problem. This approach lets us shape the solution space to reflect the robot’s physical limits and operating goals. The field of Trajectory Optimization (TrajOpt) applies similar principles to plan motion trajectories that minimize time, energy, or other costs while respecting constraints like collision avoidance. While TrajOpt typically starts from a fixed initial configuration, we can borrow the same ideas to find optimal static poses for a fixed-base robot arm.</p>
+
+<p>As an example, let’s use the <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://www.universal-robots.com/products/ur10e/&amp;ved=2ahUKEwjZzJ_i76KQAxU-mIkEHeDQAfIQFnoECBcQAQ&amp;usg=AOvVaw1S9W4mTZJFHXiCrMXvr34G" target="_blank" rel="noopener"> <strong>UR10</strong></a> robot arm from Universal Robots, which has six joints. Here, we’ll define optimal as the configuration that requires the least torque to hold the end effector at a given position.</p>
+
+<p>The gif below shows two different joint configurations that achieve the same end effector position. Both are valid IK solutions, but one requires significantly more torque to maintain. That’s the key idea behind pose optimization: not all valid IK solutions are equally efficient or stable.</p>
+
+<p><img src="/images/planar_arm/ik.gif" alt="Elbow Up Elbow Down" width="1200" height="900" /></p>
+
+<hr />
+
+<h1 id="formulating-the-problem">Formulating The Problem</h1>
+
+<h2 id="unconstrained-ik-baseline">Unconstrained IK: Baseline</h2>
+
+<p>Let’s start by walking through how we formulate the IK problem in it’s simplest form: a least-squares regression on the error between the current end effector position and it’s desired position. We will build on top of this foundation next.</p>
+
+<p>We can define the following:</p>
+
+\[\begin{equation}
+k_f(\theta) = \prod_{i=1}^{6} g_i(\theta)\\
+\end{equation}\]
+
+<p>where:</p>
+
+\[\begin{align*}
+k_f(\theta) &amp;\in \mathbb{R}^3 &amp;&amp;\text{(} \textit{Forward kinematics} \text{ mapping)} \\
+g_i &amp;\in \mathbb{R}^{4 \times 4} &amp;&amp;\text{(Transformation matrix between joint frames)} \\
+\theta &amp;\in \mathbb{R}^6 &amp;&amp;\text{(Joint configuration vector)} \\[8pt]
+\end{align*}\]
+
+<p>Then we can formulate the IK solution as the following unconstrained minimization problem:</p>
+
+\[\begin{equation}
+\min_{\theta} || k_f(\theta) - x_{goal} ||_2  \\[8pt]
+\end{equation}\]
+
+<p>Let’s solve this unconstrained problem, using mujoco to handle the derivatives. Example below, full code <a href="https://github.com/paul-jo-dreyer/mj_inverse_kinematics" target="_blank" rel="noopener"><strong>(Here)</strong></a>.:</p>
+
+<details class="code-block" style="margin:1em 0; padding:1em; border:1px solid #444; border-radius:8px; background-color:#222;">
+  <summary>💻 View Python</summary>
+  <div class="highlight">
+    
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">solve_unconstrained_ik</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">mujoco</span><span class="p">.</span><span class="n">MjModel</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">mujoco</span><span class="p">.</span><span class="n">MjData</span><span class="p">,</span>
+    <span class="n">target_pos</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">end_effector_name</span> <span class="o">=</span> <span class="sh">"</span><span class="s">wrist_3_link</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">max_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
+    <span class="n">damping</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Iterative inverse kinematics solver for a given site target.
+    Uses damped least squares on MuJoCo</span><span class="sh">'</span><span class="s">s analytic Jacobian.
+    </span><span class="sh">"""</span>
+    <span class="n">nq</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">nq</span>
+
+    <span class="n">ee_id</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">body</span><span class="p">(</span><span class="n">end_effector_name</span><span class="p">).</span><span class="nb">id</span> <span class="c1"># End effector
+</span>
+    <span class="n">convergence</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">max_steps</span><span class="p">):</span>
+ 
+        <span class="c1"># Forward kinematics
+</span>        <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="n">curr_pos</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">body</span><span class="p">(</span><span class="n">ee_id</span><span class="p">).</span><span class="n">xpos</span><span class="p">.</span><span class="nf">copy</span><span class="p">()</span>
+        
+        <span class="c1"># position error
+</span>        <span class="n">pos_err</span> <span class="o">=</span> <span class="n">target_pos</span> <span class="o">-</span> <span class="n">curr_pos</span>
+
+        <span class="c1"># Check convergence
+</span>        <span class="k">if</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="nf">norm</span><span class="p">(</span><span class="n">pos_err</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">IK converged in </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s"> iterations.</span><span class="sh">"</span><span class="p">)</span>
+                <span class="n">convergence</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">break</span>
+
+        <span class="c1"># Compute Jacobian (translation and rotation)
+</span>        <span class="n">J_pos</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">nv</span><span class="p">))</span>
+        <span class="n">J_rot</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">nv</span><span class="p">))</span>
+        <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_jacBody</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">J_pos</span><span class="p">,</span> <span class="n">J_rot</span><span class="p">,</span> <span class="n">ee_id</span><span class="p">)</span>
+
+        <span class="n">rhs</span> <span class="o">=</span> <span class="n">J_pos</span> <span class="o">@</span> <span class="n">J_pos</span><span class="p">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">damping</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="nf">eye</span><span class="p">(</span><span class="n">J_pos</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># Damped least-squares inverse
+</span>        <span class="n">dq</span> <span class="o">=</span> <span class="n">J_pos</span><span class="p">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="nf">solve</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="n">pos_err</span><span class="p">)</span>
+
+        <span class="c1"># update
+</span>        <span class="n">data</span><span class="p">.</span><span class="n">qpos</span><span class="p">[:]</span> <span class="o">+=</span> <span class="n">dq</span>
+
+    <span class="c1"># Final forward pass
+</span>    <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">convergence</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">IK failed to converge.</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="n">qpos</span><span class="p">.</span><span class="nf">copy</span><span class="p">()</span>
+    </code></pre></figure>
+
+  </div>
+</details>
+
+<hr />
+
+<h2 id="constrained-ik-torque-optimal">Constrained IK: Torque-Optimal</h2>
+
+<p>The unconstrained version of inverse kinematics is straightforward to implement and computationally lightweight. However, to make it more realistic, we need to introduce constraints that capture physical limits, and we can reshape our problem to do something useful like minimizing holding torque.</p>
+
+<p>The <a href="https://underactuated.mit.edu/multibody.html" target="_blank" rel="noopener">
+<strong>manipulator dynamics</strong></a> are defined by:</p>
+
+\[\begin{equation}
+M(\theta)\,\ddot{\theta} + C(\theta,\dot{\theta})\,\dot{\theta} + G(\theta) = \tau + J^\top(\theta)\,F_{\text{ext}}
+\end{equation}\]
+
+<p>where:</p>
+
+\[\begin{align*}
+M(\theta) &amp;\in \mathbb{R}^{6 \times 6} &amp;&amp;\text{(Mass matrix)} \\
+C(\theta, \dot{\theta}) &amp;\in \mathbb{R}^{6 \times 6} &amp;&amp;\text{(Coriolis matrix)} \\
+G(\theta) &amp;\in \mathbb{R}^{6} &amp;&amp;\text{(Gravity vector)} \\
+\tau &amp;\in \mathbb{R}^6 &amp;&amp;\text{(Joint torques)} \\
+J(\theta) &amp;\in \mathbb{R}^{3 \times 6} &amp;&amp;\text{(Kinematic jacobian)} \\
+F_{\text{ext}} &amp;\in \mathbb{R}^{3} &amp;&amp;\text{(External Forces at the tip)} \\
+\end{align*}\]
+
+<p>At static equilibrium, (holding a pose with zero velocity and acceleration):</p>
+
+\[\begin{equation}
+\quad \dot{\theta} = 0, \quad \ddot{\theta} = 0
+\end{equation}\]
+
+<p>Thus we can cancel terms, and are left with:</p>
+
+\[\begin{equation}
+\Rightarrow \quad G(\theta) = \tau + J^\top(\theta)\,F_{\text{ext}}
+\end{equation}\]
+
+\[\begin{equation}
+\boxed{\tau = G(\theta) - J^\top(\theta)\,F_{\text{ext}}}
+\end{equation}\]
+
+\[\begin{equation}
+\text{If } F_{\text{ext}} = 0, \quad \boxed{\tau = G(\theta)}
+\end{equation}\]
+
+<p>Now, instead of minimizing only the IK error, we use that error as an equality constraint and minimize the joint torques required to hold the pose:</p>
+
+\[\begin{equation}
+\min_{\theta} j(\theta) = \frac{1}{2} G(\theta)^TWG(\theta)\\[4pt]
+\end{equation}\]
+
+\[\begin{equation}
+c(\theta) = k_f(\theta) - x_{goal}
+\end{equation}\]
+
+\[\begin{equation}
+h(\theta) \;=\; \text{log}\big(q_{\text{target}}\otimes q(\theta)^{-1}\big)
+\end{equation}\]
+
+\[\begin{align*}
+\text{s.t.}\quad
+&amp; c(\theta) = 0 &amp;&amp; \text{(IK Position)}\\
+&amp; h(\theta) = 0 &amp;&amp; \text{(IK Orientation)}\\
+&amp; \theta_{\min} \le \theta \le \theta_{\max} &amp;&amp;\text{(Joint limits)}\\
+&amp; \tau_{\min} \le \tau \le \tau_{\max} &amp;&amp;\text{(Torque limits)}\\
+\end{align*}\]
+
+<p>Where \(W\) is an optional square matrix used to weight the independent joint torques if we wish to, or set to identity if we don’t want to bias any joint. Additionally, we have inequality constraints specifying that our torque limits and joint limits must be respected for the solution to be valid. For more details on how the manipulator dynamics are derived, see <a href="https://underactuated.mit.edu/multibody.html" target="_blank" rel="noopener">
+<strong>(Here)</strong></a>.</p>
+
+<p>It’s important to note that we are now solving a non-convex, constrained optimization problem. Writing a solver from scratch to handle these constraints is a bit more involved, but essentially we would write out the <a href="https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions" target="_blank" rel="noopener"><strong>(KKT Conditions)</strong></a> for the problem, and introduce a change of variables to handle the inequality constraints. For anyone interested in learning about constrained optimization meathods such as the Augmented Lagrangian method or Interior Point methods, you should 1000% check out “16-745: Optimal Control and RL”, a class by professor Zac Manchester at CMU. This class is absolutely kick ass, and the whole series is on youtube <a href="https://www.youtube.com/watch?v=-f1pu8vsnYw&amp;list=PLZnJoM76RM6Jv4f7E7RnzW4rijTUTPI4u&amp;index=5" target="_blank" rel="noopener">
+<strong>(Here)</strong></a>.</p>
+
+<p>That being said, we’re just gonna rip a Scipy solver here and use MuJoCo for the derivatives. Take a look at the partial code below to see how we setup the constraints and interface with the api, again the full code is in this repo <a href="https://github.com/paul-jo-dreyer/mj_inverse_kinematics" target="_blank" rel="noopener">
+<strong>(Here)</strong></a>.</p>
+
+<p>Additional note: This is a non-convex problem = no globally optimal solution guarantees. This particular problem is low dimensional enough that you can just probably just perform a coarse sweep over the work space and land on a globally optimal solution.</p>
+
+<details class="code-block" style="margin:1em 0; padding:1em; border:1px solid #444; border-radius:8px; background-color:#222;">
+  <summary>💻 View Python</summary>
+  <div class="highlight">
+    
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="n">mujoco</span>
+<span class="kn">import</span> <span class="n">mujoco.viewer</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="n">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span><span class="p">,</span> <span class="n">Bounds</span><span class="p">,</span> <span class="n">NonlinearConstraint</span>
+<span class="kn">from</span> <span class="n">scipy.spatial.transform</span> <span class="kn">import</span> <span class="n">Rotation</span> <span class="k">as</span> <span class="n">R</span>
+
+<span class="c1"># ==============================
+# MuJoCo Dynamics Helpers
+# ==============================
+</span><span class="k">def</span> <span class="nf">static_torque</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Compute the static torque required to hold a pose.</span><span class="sh">"""</span>
+    <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_resetData</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">qpos</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">q</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">qvel</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="n">qfrc_bias</span><span class="p">.</span><span class="nf">copy</span><span class="p">()</span>
+
+<span class="c1"># ==============================
+# Optimization Objective
+# ==============================
+</span><span class="k">def</span> <span class="nf">torque_objective</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Minimize joint torques at static equilibrium.</span><span class="sh">"""</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="nf">static_torque</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">@</span> <span class="n">R</span> <span class="o">@</span> <span class="n">tau</span>
+
+<span class="k">def</span> <span class="nf">torque_objective_grad</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Finite-difference gradient of torque objective.</span><span class="sh">"""</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">size</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="nf">static_torque</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">grad</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">dq</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros_like</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="n">dq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eps</span>
+        <span class="n">tau_p</span> <span class="o">=</span> <span class="nf">static_torque</span><span class="p">(</span><span class="n">q</span> <span class="o">+</span> <span class="n">dq</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="n">tau_m</span> <span class="o">=</span> <span class="nf">static_torque</span><span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="n">dq</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="n">dtau_dqi</span> <span class="o">=</span> <span class="p">(</span><span class="n">tau_p</span> <span class="o">-</span> <span class="n">tau_m</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">eps</span><span class="p">)</span>
+        <span class="n">grad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dtau_dqi</span> <span class="o">@</span> <span class="p">(</span><span class="n">R</span> <span class="o">@</span> <span class="n">tau</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grad</span>
+
+<span class="k">def</span> <span class="nf">ik_constraint</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">,</span> <span class="n">target_pos</span><span class="p">,</span> <span class="n">target_quat</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Compute end-effector (body or site) position and orientation error.
+
+    Args:
+        q (np.ndarray): Joint configuration vector.
+        model (mujoco.MjModel): MuJoCo model.
+        data (mujoco.MjData): MuJoCo data.
+        ee_name (str): Name of the end-effector body or site.
+        target_pos (np.ndarray): Desired world position [x, y, z].
+        target_quat (np.ndarray, optional): Desired world orientation [w, x, y, z].
+    
+    Returns:
+        np.ndarray: Concatenated position and orientation error (6D).
+    </span><span class="sh">"""</span>
+    <span class="n">SOLVER_HIST</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+
+    <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_resetData</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">qpos</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">q</span>
+    <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Try to interpret ee_name as a site first, fallback to body
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ee_id</span> <span class="o">=</span> <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_name2id</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mujoco</span><span class="p">.</span><span class="n">mjtObj</span><span class="p">.</span><span class="n">mjOBJ_SITE</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">)</span>
+        <span class="n">ee_pos</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">copy</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">site_xpos</span><span class="p">[</span><span class="n">ee_id</span><span class="p">])</span>
+        <span class="c1"># ee_mat = data.site_xmat[ee_id].reshape(3, 3)
+</span>        <span class="c1"># ee_quat = R.from_matrix(ee_mat).as_quat()  # [x, y, z, w] order
+</span>        <span class="c1"># ee_quat = np.roll(ee_quat, 1)  # convert to [w, x, y, z]
+</span>
+    <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+        <span class="n">ee_id</span> <span class="o">=</span> <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_name2id</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mujoco</span><span class="p">.</span><span class="n">mjtObj</span><span class="p">.</span><span class="n">mjOBJ_BODY</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">)</span>
+        <span class="n">ee_pos</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">copy</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">xpos</span><span class="p">[</span><span class="n">ee_id</span><span class="p">])</span>
+        <span class="n">ee_quat</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">copy</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">xquat</span><span class="p">[</span><span class="n">ee_id</span><span class="p">])</span>  <span class="c1"># already [w, x, y, z]
+</span>
+    <span class="c1"># --- Position error ---
+</span>    <span class="n">pos_err</span> <span class="o">=</span> <span class="n">ee_pos</span> <span class="o">-</span> <span class="n">target_pos</span>
+
+    <span class="c1"># --- Orientation error ---
+</span>    <span class="k">if</span> <span class="n">target_quat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">q_err</span> <span class="o">=</span> <span class="nf">quat_mul</span><span class="p">(</span><span class="nf">quat_conjugate</span><span class="p">(</span><span class="n">target_quat</span><span class="p">),</span> <span class="n">ee_quat</span><span class="p">)</span>
+        <span class="n">ori_err</span> <span class="o">=</span> <span class="nf">quat_to_axis_angle</span><span class="p">(</span><span class="n">q_err</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ori_err</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="nf">concatenate</span><span class="p">([</span><span class="n">pos_err</span><span class="p">,</span> <span class="n">ori_err</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">ik_constraint_jac</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">6×N Jacobian for end-effector position + orientation.
+
+    Automatically handles both body and site names.
+    </span><span class="sh">"""</span>
+    <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_resetData</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">qpos</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">q</span>
+    <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Allocate
+</span>    <span class="n">Jp</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">nv</span><span class="p">))</span>
+    <span class="n">Jr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">model</span><span class="p">.</span><span class="n">nv</span><span class="p">))</span>
+
+    <span class="c1"># Try as site first
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ee_id</span> <span class="o">=</span> <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_name2id</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mujoco</span><span class="p">.</span><span class="n">mjtObj</span><span class="p">.</span><span class="n">mjOBJ_SITE</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">)</span>
+        <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_jacSite</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">Jp</span><span class="p">,</span> <span class="n">Jr</span><span class="p">,</span> <span class="n">ee_id</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+        <span class="n">ee_id</span> <span class="o">=</span> <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_name2id</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mujoco</span><span class="p">.</span><span class="n">mjtObj</span><span class="p">.</span><span class="n">mjOBJ_BODY</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">)</span>
+        <span class="n">mujoco</span><span class="p">.</span><span class="nf">mj_jacBody</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">Jp</span><span class="p">,</span> <span class="n">Jr</span><span class="p">,</span> <span class="n">ee_id</span><span class="p">)</span>
+
+    <span class="c1"># Stack [linear; angular] → shape (6, nq)
+</span>    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="nf">vstack</span><span class="p">([</span><span class="n">Jp</span><span class="p">,</span> <span class="n">Jr</span><span class="p">])[:,</span> <span class="p">:</span><span class="n">model</span><span class="p">.</span><span class="n">nq</span><span class="p">]</span>
+
+<span class="c1"># ==============================
+# Main Solver
+# ==============================
+</span><span class="k">def</span> <span class="nf">solve_constrained_ik</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">,</span> <span class="n">target_pos</span><span class="p">,</span> <span class="n">target_quat</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                         <span class="n">q0</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Solve constrained IK minimizing static torque subject to IK equality.</span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">q0</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">q0</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">qpos</span><span class="p">.</span><span class="nf">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">R</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">eye</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">nv</span><span class="p">)</span>
+
+    <span class="c1"># flatten functions to single arg (scipy api)
+</span>    <span class="k">def</span> <span class="nf">obj</span><span class="p">(</span><span class="n">q</span><span class="p">):</span> <span class="k">return</span> <span class="nf">torque_objective</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">obj_grad</span><span class="p">(</span><span class="n">q</span><span class="p">):</span> <span class="k">return</span> <span class="nf">torque_objective_grad</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">con_fun</span><span class="p">(</span><span class="n">q</span><span class="p">):</span> <span class="k">return</span> <span class="nf">ik_constraint</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">,</span> <span class="n">target_pos</span><span class="p">,</span> <span class="n">target_quat</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">con_jac</span><span class="p">(</span><span class="n">q</span><span class="p">):</span> <span class="k">return</span> <span class="nf">ik_constraint_jac</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">ee_name</span><span class="p">)</span>
+
+    <span class="c1"># IK solution constraint
+</span>    <span class="n">constraint</span> <span class="o">=</span> <span class="nc">NonlinearConstraint</span><span class="p">(</span><span class="n">con_fun</span><span class="p">,</span> <span class="o">-</span><span class="n">tol</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">tol</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">jac</span><span class="o">=</span><span class="n">con_jac</span><span class="p">)</span>
+
+    <span class="c1"># joint limits constraint
+</span>    <span class="n">bounds</span> <span class="o">=</span> <span class="nc">Bounds</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">jnt_range</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">model</span><span class="p">.</span><span class="n">jnt_range</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Pose solution
+</span>    <span class="n">res</span> <span class="o">=</span> <span class="nf">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">q0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="sh">'</span><span class="s">trust-constr</span><span class="sh">'</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">obj_grad</span><span class="p">,</span>
+                   <span class="n">constraints</span><span class="o">=</span><span class="p">[</span><span class="n">constraint</span><span class="p">],</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span>
+                   <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="sh">'</span><span class="s">verbose</span><span class="sh">'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="sh">'</span><span class="s">maxiter</span><span class="sh">'</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="sh">'</span><span class="s">gtol</span><span class="sh">'</span><span class="p">:</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="sh">'</span><span class="s">xtol</span><span class="sh">'</span><span class="p">:</span> <span class="mf">1e-6</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">res</span>
+    </code></pre></figure>
+
+  </div>
+</details>
+
+<p>Let’s see the benefits in action. Suppose our target end effector position is:</p>
+
+\[\begin{equation}
+k_f(\theta) = [x, y, z]^T = [0.5, 0.0, 0.5]^T
+\end{equation}\]
+
+<p>Both solvers converge to a valid solution, however the sum of torques from the unconstrained solution result in <strong>147 Nm</strong>, while our constrained solver finds a pose in which the sum of torques is just <strong>34 Nm</strong>.</p>
+
+<hr />
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>The take away here is that we can bootstrap our original intent to solve the inverse kinematics problem with additional information about what we want the solution to look like by formulating it as a constrained optimization.</p>
+
+<p>Now it’s important to point out that this is a non-convex problem, which means that your initial guess at the joint angles \(\theta\) can entirely determine if the solver will converge to a feasible solution. Given that we will typically run something like this in an offline setting, and that robot manipulators often contain a fairly low dimensional decision vector we can probably get decent solution by trying a few uniformly distributed initial guesses over the joint space, but no globally optimal guarantees here.</p>
+
+<p>Please note that this does not include a constraint on robot self-collisions, meaning a solution may respect joint limits but still cause a self intersection.</p>
+
+<p>Addtionally, MuJoCo is pretty awesome. It runs much faster than Bullet Physics, and it comes with a stacked toolbox to help you handle dynamics and derivatives. Trust me, if there is one thing that will slow your development speed, it’s bugs in the dynamics or derivatives.</p>
+
+    </div>
+
+    <div class="post__share">
+  <div class="share__head">
+    <div class="share__title">Share this Post</div>
+  </div>
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter"
+        href="https://twitter.com/intent/tweet?text=Optimal%20Kinematic%20Posing&url=http://localhost:6060/blog/ik-optimization"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__facebook"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:6060/blog/ik-optimization"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=http://localhost:6060/blog/ik-optimization&amp;media=http://localhost:6060/images/planar_arm/cover_no_words.png&amp;description=Optimal%20Kinematic%20Posing"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+    </li>
+    <li class="share__item">
+      <a class="share__link share__linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:6060/blog/ik-optimization&title=Optimal%20Kinematic%20Posing&summary=Viewing%20inverse%20kinematics%20as%20a%20constrained%20optimization%20problem&source=Paul%20Dreyer"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+
+  </article>
+</div>
+<!-- end post -->
+
+<div class="container">
+  <div class="row">
+    <div class="col col-10 col-d-12 push-d-0 push-1">
+      <div class="post__navigation animate">
+  
+  <a class="post__prev" href="/blog/robot-calibration-wiggle-to-learn-about-yourself">
+    <div class="prev__image">
+      <img loading="lazy" src="/images/robustness/robustness.png" alt="Optimal Kinematic Posing">
+    </div>
+    <div class="prev__box">
+      <span class="post__nav post__nav__prev">Prev post</span>
+      <h2 class="post__nav__title">Robot Calibration: Wiggle to Learn About Yourself</h2>
+    </div>
+  </a>
+  
+
+  
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- begin related posts -->
+<div class="container">
+  <section class="related-posts  animate">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">You may also like</h2>
+              <a class="section__link" href="/blog">
+                
+                
+                  
+                    <a href="/tags#Kinematics" class="section__link related-tag">See all<span> Kinematics</span> <i class="ion ion-md-arrow-forward"></i></a>
+                  
+                
+                  
+                
+              
+              </a>
+            </div>
+          </div>
+          <div class="row">
+
+          
+            
+            
+      
+            
+      
+            
+            
+            
+            
+      
+            
+      
+            
+            
+            
+            
+      
+            
+      
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- end related posts -->
+
+
+
+
+
+    <!--
+        Bookshop components are accessed using the bookshop tag,
+        using the same syntax as the standard Jekyll include tag.
+    -->
+    <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(page.jekyll.html) params(content_blocks=page.content_blocks page_theme=page.page_theme) context() -->
+
+<!--bookshop-live end-->
+
+    <div class="top" title="Top"><i class="ion ion-ios-arrow-up"></i></div>
+
+    <!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(social-link.jekyll.html) params() context() -->
+
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com/paul-jo-dreyer" target="_blank" rel="noopener" aria-label="github icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-github" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://www.linkedin.com/in/paul-dreyer-cmu/" target="_blank" rel="noopener" aria-label="linkedin icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-linkedin" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://medium.com/@pauldreyer345" target="_blank" rel="noopener" aria-label=" icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <img src="/images/logos/medium-logo.jpg" alt="Medium" style="width: 1em; height: 1em; display: block; object-fit: contain;">
+        
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+<!--bookshop-live end-->
+
+        <ul class="footer_nav list-reset">
+          
+          <li class="footer_nav__item">
+            <a href="/" class="footer_nav__link">Home</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/about/" class="footer_nav__link">About</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/projects/" class="footer_nav__link">Projects</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/blog/" class="footer_nav__link">Blog</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/resume/" class="footer_nav__link">Resume</a>
+          </li>
+          
+        </ul>
+
+        <div class="copyright"><p> 2021 &copy; <a href="/">Vonge</a>. Template by <a href="https://cloudcannon.com/">CloudCannon</a>.</p></div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Ionicons -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+</footer>
+<!-- end footer -->
+
+    <script src="/js/scripts.js"></script>
+    <script src="/js/common.js"></script>
+</body>
+</html>

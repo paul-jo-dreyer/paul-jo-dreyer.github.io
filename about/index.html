@@ -29,6 +29,23 @@
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/main.css">
+
+  <!-- Latex  -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 
 <body>
@@ -170,7 +187,7 @@
   <div class="row">
     <div class="col col-12">
       <div class="c-page-image animate">
-        <img loading="lazy" src="/images/me/me_mountain.JPG" alt="My best photo">
+        <img loading="lazy" src="/images/me/me_mountain.JPG" alt="Olympic National Park">
       </div>
     </div>
   </div>
@@ -180,11 +197,12 @@
     <!--bookshop-live name(content/content.jekyll.html) params(bind=block) context(block=content_blocks[2]) -->
 <div class="container">
   <div class="page animate">
-    <h2>
+    
+<h2>
   Personal:
 </h2> <p>I love backpacking, mini adventures, and above all else learning new things. I love to share
   the things I'm learning about with others, and I recently started writing blog articles to 
-  dive deeper into some of the technical details of my passion projects. 
+  dive deeper into some of the technical details of my passion projects. (Photo: Mystery Ridge -> Olympics (WA))
 </p> ---
 <h2>
   Academic:

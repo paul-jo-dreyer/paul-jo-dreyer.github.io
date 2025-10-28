@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Robot Exploration</title>
+  <meta name='description' content='Personal website'>
+
+  <link rel="canonical" href="http://localhost:6060/project/exploration">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Robot Exploration – Paul Dreyer">
+  <meta name="twitter:description" content="Background
+I took a class called “Mobile Robot Algorithms” in college, where we got some exposure to a ton of different core algorithms, everything from mapping and localization, to dynamics and feedback control. As part of my final project, I developed this myopic 3D grid-based exploration simulation in Python.
+">
+  <meta name="twitter:image:src" content="http://localhost:6060/images/exploration/mapping.png">
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="Robot Exploration – Paul Dreyer">
+  <meta property="og:description" content="Background
+I took a class called “Mobile Robot Algorithms” in college, where we got some exposure to a ton of different core algorithms, everything from mapping and localization, to dynamics and feedback control. As part of my final project, I developed this myopic 3D grid-based exploration simulation in Python.
+">
+  <meta property="og:image" content="http://localhost:6060/images/exploration/mapping.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Ionicons -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/main.css">
+
+  <!-- Latex  -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+
+<body>
+
+    
+
+    <!-- begin header -->
+<header class="c-header">
+  <div class="container">
+    <div class="row">
+      <div class="c-header__inner">
+
+        <div class="logo">
+          <a class="logo__link" href="/">
+          
+            <img class="logo__image" src="/images/name_120_60.png" alt="Paul Dreyer">
+          
+          </a>
+        </div>
+
+        <nav class="main-nav">
+          <div class="main-nav__box">
+
+            <div class="nav__icon-close">
+              <i class="ion ion-md-close"></i>
+            </div>
+
+            <div class="nav__title">Menu</div>
+
+              <ul class="nav__list list-reset">
+
+              
+                
+                <li class="nav__item">
+                  <a href="/" class="nav__link">Home</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/about/" class="nav__link">About</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/projects/" class="nav__link">Projects</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/blog/" class="nav__link">Blog</a>
+                </li>
+                
+              
+                
+                <li class="nav__item">
+                  <a href="/resume/" class="nav__link">Resume</a>
+                </li>
+                
+              
+
+            </ul>
+          </div>
+
+          <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(social-link.jekyll.html) params() context() -->
+
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com/paul-jo-dreyer" target="_blank" rel="noopener" aria-label="github icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-github" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://www.linkedin.com/in/paul-dreyer-cmu/" target="_blank" rel="noopener" aria-label="linkedin icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-linkedin" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://medium.com/@pauldreyer345" target="_blank" rel="noopener" aria-label=" icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <img src="/images/logos/medium-logo.jpg" alt="Medium" style="width: 1em; height: 1em; display: block; object-fit: contain;">
+        
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+<!--bookshop-live end-->
+        </nav>
+
+        <div class="nav-button">
+          <i class="nav__icon nav__icon-menu ion ion-md-menu"></i>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- end header -->
+
+    <div class="container">
+
+  <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(page-heading/page-heading.jekyll.html) params(title=page.title description=page.subtitle) context() -->
+
+<div class="container">
+  <div class="c-page-heading">
+    <h1 class="c-page-heading__title">Robot Exploration</h1>
+    
+      <p class="c-page-heading__description">Algorithms</p>
+    
+  </div>
+</div>
+<!--bookshop-live end-->
+  
+  <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(page-image/page-image.jekyll.html) params(image=page_image) context() -->
+
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <div class="c-page-image animate">
+        <img loading="lazy" src="/images/exploration/mapping.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<!--bookshop-live end-->
+
+  <div class="page animate">
+    <h1 id="background">Background</h1>
+<p>I took a class called “Mobile Robot Algorithms” in college, where we got some exposure to a ton of different core algorithms, everything from mapping and localization, to dynamics and feedback control. As part of my final project, I developed this myopic 3D grid-based exploration simulation in Python.</p>
+
+<p><img src="/images/exploration/exploration.GIF" alt="Gif" width="1200" height="900" /></p>
+
+<h1 id="how-it-works">How It Works</h1>
+<p>What you’re seeing here is a toy example of a robot (the blue sphere), exploring an environment while avoiding obstacles (dark grey voxels). The robot is equipped with an omnidirectional lidar sensor (blue lines) which it uses to sense obstacles, and update the occupancy map.</p>
+
+<p>Exploration of the environment is encourage through a myopic mutual information based planner - meaning that at each time step, the robot computes the entropy of the map, and moves to the nearest voxel which would lead to the largest reduction in total map entropy. i.e. “Where should I move to learn the most new information about the map -&gt; obstacles and free regions?”. Myopic just means that it’s only considering a single time step into the future.</p>
+
+
+  </div>
+
+  
+  <div class="project__navigation animate" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 40px;">
+
+    <!-- NOTE: This section is hacked to deal with reverese sort issue -->
+    
+    <a class="project__prev" href="/project/sherlock-ohms" style="flex: 1; text-align: left;">
+      <div class="project__box">
+        <span class="project__nav__info">Previous Project</span>
+        <h4 class="project__nav__title">Sherlock Ohms<i class="ion ion-md-arrow-round-back arrow-left"></i></h4>
+      </div>
+    </a>
+    
+    
+    
+    <a class="project__next" href="/project/active-grousers" style="flex: 1; text-align: right;">
+      <div class="project__box">
+        <span class="project__nav__info">Next Project</span>
+        <h4 class="project__nav__title"><i class="ion ion-md-arrow-round-forward arrow-right"></i>Active Grousers</h4>
+      </div>
+    </a>
+    
+
+    <!-- NOTE: This is the original -->
+    <!-- 
+    <a class="project__prev" href="/project/active-grousers" style="flex: 1; text-align: left;">
+      <div class="project__box">
+        <span class="project__nav__info">Previous Project</span>
+        <h4 class="project__nav__title">Active Grousers<i class="ion ion-md-arrow-round-back arrow-left"></i></h4>
+      </div>
+    </a>
+    
+
+    
+    <a class="project__next" href="/project/sherlock-ohms" style="flex: 1; text-align: right;">
+      <div class="project__box">
+        <span class="project__nav__info">Next Project</span>
+        <h4 class="project__nav__title"><i class="ion ion-md-arrow-round-forward arrow-right"></i>Sherlock Ohms</h4>
+      </div>
+    </a>
+     -->
+ 
+
+  </div>
+  
+
+</div>
+
+
+
+    <!--
+        Bookshop components are accessed using the bookshop tag,
+        using the same syntax as the standard Jekyll include tag.
+    -->
+    <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(page.jekyll.html) params(content_blocks=page.content_blocks page_theme=page.page_theme) context() -->
+
+<!--bookshop-live end-->
+
+    <div class="top" title="Top"><i class="ion ion-ios-arrow-up"></i></div>
+
+    <!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+
+        <!--bookshop-live meta(version="3.9.0" baseurl="" title="Paul Dreyer") -->
+<!--bookshop-live name(social-link.jekyll.html) params() context() -->
+
+<div class="social">
+  <ul class="social__list list-reset">
+    
+    <li class="social__item">
+      <a class="social__link" href="https://github.com/paul-jo-dreyer" target="_blank" rel="noopener" aria-label="github icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-github" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://www.linkedin.com/in/paul-dreyer-cmu/" target="_blank" rel="noopener" aria-label="linkedin icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <i class="ion ion-logo-linkedin" style="display: block;"></i>
+        
+      </a>
+    </li>
+    
+    <li class="social__item">
+      <a class="social__link" href="https://medium.com/@pauldreyer345" target="_blank" rel="noopener" aria-label=" icon" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.2em;">
+        
+          <img src="/images/logos/medium-logo.jpg" alt="Medium" style="width: 1em; height: 1em; display: block; object-fit: contain;">
+        
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+
+<!--bookshop-live end-->
+
+        <ul class="footer_nav list-reset">
+          
+          <li class="footer_nav__item">
+            <a href="/" class="footer_nav__link">Home</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/about/" class="footer_nav__link">About</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/projects/" class="footer_nav__link">Projects</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/blog/" class="footer_nav__link">Blog</a>
+          </li>
+          
+          <li class="footer_nav__item">
+            <a href="/resume/" class="footer_nav__link">Resume</a>
+          </li>
+          
+        </ul>
+
+        <div class="copyright"><p> 2021 &copy; <a href="/">Vonge</a>. Template by <a href="https://cloudcannon.com/">CloudCannon</a>.</p></div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Ionicons -->
+  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+</footer>
+<!-- end footer -->
+
+    <script src="/js/scripts.js"></script>
+    <script src="/js/common.js"></script>
+</body>
+</html>
