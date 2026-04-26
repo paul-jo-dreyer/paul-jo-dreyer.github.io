@@ -1,5 +1,5 @@
 ---
-title:  Your Life in a Single Day
+title:  Life Time
 date:   2026-04-26 00:01:00 +0300
 image: '/images/sun_dial/sun_dial.jpg'
 description: A fun perspective to view your life from.
@@ -8,7 +8,7 @@ tags: ["Food for thought"]
 
 ----
 
-*"Suppose you map your life, where you're at right now in time, to a single day. What's happening in your life's day?"*
+*"Suppose you map your life, where you are right now in time, to a single day. What's happening in your life's day?"*
 
 ----
 
