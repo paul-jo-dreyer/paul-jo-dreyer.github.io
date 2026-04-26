@@ -2,7 +2,7 @@
 title:  Life Time
 date:   2026-04-26 00:01:00 +0300
 image: '/images/sun_dial/sun_dial.jpg'
-description: A fun perspective to view your life from.
+description: Viewing your life through the lens of a single day
 tags: ["Food for thought"]
 ---
 
