@@ -8,16 +8,15 @@ tags: ["Food for thought"]
 
 ----
 
-*"Suppose you map your life, where you are right now in time, to a single day. What's happening in your life's day?"*
+*"If your whole life were to be mapped to a single 24hr day, what time would it be for you?"*
 
 ----
 
-I love when a simple idea catches me off guard. At the time of writing this, I'm almost 31, and I suppose if I had to guess how long I have here, I'd bet I'm going out when I'm 75. From this perspective, it's about 09:54 AM in the single day of my life.
+Suppose I live to be 75 years old (31 at the time of writing this), it would be about 9:54 AM in the single day of my life.
 
 Somewhere between my first and second coffee. 
 
-I made a simple calulator to make this mapping for you. I encourage you, after mulling over your own time, see what time it would be for your parents. I think I need to spend more time with mine. 
-
+I love when a simple idea catches me off guard.
 
 
 # Try it
